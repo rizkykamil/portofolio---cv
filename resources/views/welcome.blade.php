@@ -485,7 +485,7 @@
                                             <div class="col-lg-12">
                                                 <div class="project-item">
                                                     <div class="image">
-                                                        <img src="{{asset("assets/img/projects/flozorsgym.png")}}" alt="flozorsgym"
+                                                        <img src="{{asset("assets/img/projects/enforcea.png")}}" alt="enforcea"
                                                             class="img-fluid w-100">
                                                         <a href="https://www.enforcea.com/" target="_blank"
                                                             class="full-image-preview ">
