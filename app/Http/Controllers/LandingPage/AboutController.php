@@ -11,6 +11,6 @@ class AboutController extends Controller
 {
     public function index(): Factory|View
     {
-        return view(view: 'landing-page.abouts');
+        return view(view: 'landing-page.about');
     }
 }
