@@ -45,22 +45,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="services.html">
-                                <svg class="nav-icon" viewBox="0 0 16 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M7.99967 1.3335L1.33301 4.66683L7.99967 8.00016L14.6663 4.66683L7.99967 1.3335Z"
-                                        stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M1.33301 8L7.99967 11.3333L14.6663 8" stroke-width="1.4"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M1.33301 11.3335L7.99967 14.6668L14.6663 11.3335"
-                                        stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                Services
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="portfolio.html">
+                            <a class="nav-link {{ Request::is('works') ? 'active' : '' }}" aria-current="page" href="{{route('works')}}">                                <svg class="nav-icon" viewBox="0 0 17 16" fill="none"
                                 <svg class="nav-icon" viewBox="0 0 18 17" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -77,8 +62,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog.html">
-                                <svg class="nav-icon" viewBox="0 0 17 16" fill="none"
+                            <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" aria-current="page" href="{{route('blog.index')}}">                                <svg class="nav-icon" viewBox="0 0 17 16" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M12.1663 6.16676L13.4163 4.91676C13.6352 4.69789 13.8088 4.43805 13.9273 4.15208C14.0457 3.86612 14.1067 3.55962 14.1067 3.25009C14.1067 2.94056 14.0457 2.63406 13.9273 2.3481C13.8088 2.06213 13.6352 1.80229 13.4163 1.58342C13.1975 1.36455 12.9376 1.19094 12.6517 1.07248C12.3657 0.954033 12.0592 0.893066 11.7497 0.893066C11.4401 0.893066 11.1336 0.954033 10.8477 1.07248C10.5617 1.19094 10.3019 1.36455 10.083 1.58342L1.33301 10.3334V13.6668H4.66634L6.33301 12.0001"
@@ -91,7 +75,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">
+                            <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" aria-current="page" href="{{route('contact')}}">
                                 <svg class="nav-icon" viewBox="0 0 18 17" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5.66699 5.5H12.3337" stroke-width="1.4" stroke-linecap="round"
@@ -151,7 +135,7 @@
                                 <small class="theme-text d-block d-xl-none">Change appearance</small>
                             </span>
                         </button>
-                        <a href="contact.html" class="lets-talk-btn">
+                        <a href="{{route('contact')}}" class="lets-talk-btn">
                             Let's Talk
                             <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
