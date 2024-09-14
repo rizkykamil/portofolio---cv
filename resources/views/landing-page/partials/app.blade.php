@@ -24,6 +24,8 @@
         @include('landing-page.partials.footer')
 
         @include('landing-page.partials.common-scripts')
+
+        @include('landing-page.partials.background-animation')
     </div>
 </body>
 

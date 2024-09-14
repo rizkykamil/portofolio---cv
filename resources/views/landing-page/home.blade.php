@@ -220,7 +220,7 @@
                                     <div class="col-lg-12">
                                         <div class="project-item">
                                             <div class="image">
-                                                <img src="{{asset("assets/img/projects/flozorsgym.png")}}"
+                                                <img src="{{asset("assets/img/projects/Flozorsgym.png")}}"
                                                     alt="flozorsgym" class="img-fluid w-100">
                                                 <a href="https://flozorsgym.com/" target="_blank"
                                                     class="full-image-preview ">

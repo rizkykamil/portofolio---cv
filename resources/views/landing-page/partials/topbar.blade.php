@@ -15,7 +15,7 @@
                     </div>
                     <ul class="navbar-info mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{route('home')}}">
+                            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="{{route('home')}}">
                                 <svg class="nav-icon" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -28,7 +28,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about')}}">
+                            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{route('about')}}">
                                 <svg class="nav-icon" viewBox="0 0 18 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
