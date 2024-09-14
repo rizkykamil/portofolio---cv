@@ -9,8 +9,8 @@ use Illuminate\Contracts\View\View;
 
 class AboutController extends Controller
 {
-    public function index(): Factory|View
+    public function index()
     {
-        return view(view: 'landing-page.about');
+        return view('landing-page.about');
     }
 }
