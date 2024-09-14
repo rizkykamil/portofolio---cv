@@ -268,19 +268,7 @@
                     <div class="col-xl-8">
                         <div class="card services-card">
                             <div class="card-body">
-                                <h3 class="card-title">Services I Offered
-                                    <a class="link-btn" href="services.html"> See All Services
-                                        <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.16699 10H15.8337" stroke="#4770FF" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M10.833 15L15.833 10" stroke="#4770FF" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M10.833 5L15.833 10" stroke="#4770FF" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-
-                                    </a></h3>
+                                <h3 class="card-title">Services I Offered</h3>
                                 <div class="services-main mt-24">
                                     <div class="row g-4 justify-content-center align-items-center">
                                         <div class="col-md-3 col-sm-6 col-6">
