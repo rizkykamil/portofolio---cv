@@ -15,10 +15,4 @@ Route::group(attributes: ['prefix' => '/'], routes: function (): void {
     Route::get(uri: '/blog', action: [BlogController::class, 'index'])->name(name: 'blog.index');
     Route::get(uri: '/blog/{slug}', action: [BlogController::class, 'show'])->name(name: 'blog.show');
     Route::get(uri: '/works', action: [WorkController::class, 'index'])->name(name: 'works');
-
-    Route::get('/test'
-        , function () {
-            return 'test';
-        }
-    );
 });
