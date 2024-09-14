@@ -14,3 +14,5 @@ class AboutController extends Controller
         return view('landing-page.about');
     }
 }
+
+// test
