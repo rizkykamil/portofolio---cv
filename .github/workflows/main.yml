@@ -23,6 +23,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
+          git config --global --add safe.directory /var/www/portofolio---cv
           cd /var/www/portofolio---cv/
           git pull origin main
           git status
