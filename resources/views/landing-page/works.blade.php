@@ -1,5 +1,5 @@
 @extends('landing-page.partials.app')
-@section('title', 'My Blog')
+@section('title', 'My Portfolio')
 @section('content')
 <section class="content-box-area mt-4">
     <div class="container">
