@@ -16,11 +16,11 @@ class MaintenanceMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        if ($request->is('maintenance')) {
+        if ($request->is('comming-soon')) {
             return $next($request);
         }
 
         // Redirect ke halaman maintenance
-        return redirect('/maintenance');
+        return redirect('/comming-soon');
     }
 }
