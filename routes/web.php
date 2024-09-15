@@ -47,6 +47,6 @@ Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function
 }); // Middleware hanya diterapkan di grup ini
 
 // Route maintenance juga tanpa middleware
-Route::get('/maintenance', function () {
+Route::get('/comming-soon', function () {
     return view('comming-soon');
 });
