@@ -15,15 +15,28 @@
 </div>
 
 <div>
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="row">
+        @foreach($blogs as $blog)
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="card mt-4">
-                <img src="https://picsum.photos/300/200?random=2" class="card-img-top" alt="Blog Title 1">
+                <img src="{{ asset('uploads/blog_images/' . $blog->gambar) }}" class="card-img-top img-fluid" alt="{{ $blog->judul }}" loading="lazy" style="object-fit: cover; width: 100%; height: 100%; max-width: 1880px; max-height: 1253px;">
                 <div class="card-body">
-                    <h5 class="card-title">Blog Title 1</h5>
-                    <p class="card-text">This is a description of Blog 1. It provides insight about the project.</p>
-                    <a href="{{ route('admin.blog.edit', 1) }}" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="{{ route('admin.blog.destroy', 1) }}" method="POST" class="d-inline">
+                    <h5 class="card-title">{{ $blog->judul }}</h5>
+                    <p class="card-text">{{ Str::limit($blog->isi, 30, '...') }}</p>
+                    <a href="{{ route('admin.blog.edit', $blog->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <form action="{{ route('admin.blog.destroy', $blog->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -31,38 +44,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="card mt-4">
-                <img src="https://picsum.photos/300/200?random=3" class="card-img-top" alt="Blog Title 2">
-                <div class="card-body">
-                    <h5 class="card-title">Blog Title 2</h5>
-                    <p class="card-text">This is a description of Blog 2. It covers the details of the project.</p>
-                    <a href="{{ route('admin.blog.edit', 2) }}" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="{{ route('admin.blog.destroy', 2) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="card mt-4">
-                <img src="https://picsum.photos/300/200?random=1" class="card-img-top" alt="Blog Title 3">
-                <div class="card-body">
-                    <h5 class="card-title">Blog Title 3</h5>
-                    <p class="card-text">This is a description of Blog 3. It explains the key features of the project.</p>
-                    <a href="{{ route('admin.blog.edit', 3) }}" class="btn btn-primary btn-sm">Edit</a>
-                    <form action="{{ route('admin.blog.destroy', 3) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 

@@ -45,6 +45,14 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="isiblog">Isi</label>
+                            <textarea class="form-control @error('isiblog') is-invalid @enderror" id="isiblog" name="isiblog" rows="3">{{ old('isiblog') }}</textarea>
+                            @error('isiblog')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     
                         <div class="mb-3">
                             <label for="time" class="form-label">Time</label>
