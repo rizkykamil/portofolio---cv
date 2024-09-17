@@ -68,7 +68,7 @@
 
     <div class="container">
         <h1>Coming Soon</h1>
-        <img src="{{asset("assets/img/comming_soon.svg")}}" style="height: 300px;" width="500" height="300"
+        <img src="{{asset("assets/img/comming_soon.svg")}}" style="height: 300px;" width="500" height="300" loading="lazy"
             alt="Coming Soon">
         <p>Our website is under construction. We'll be here soon with our new awesome site, stay tuned!</p>
     </div>
