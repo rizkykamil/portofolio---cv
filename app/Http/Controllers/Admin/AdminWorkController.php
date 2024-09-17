@@ -12,7 +12,7 @@ class AdminWorkController extends Controller
 {
     public function index()
     {
-        $works = Work::all();
+        $works = Work::select('id', 'judul', 'gambar')->get();
         return view('admin.works.index', compact('works'));
     }
 
