@@ -20,6 +20,7 @@
                         <div class="article-publications article-area">
                             <div class="article-publications-main">
                                 <div class="row">
+                                    @if ($blogs->count() > 0)
                                     @foreach ($blogs as $blog)
                                     <div class="col-xl-6 col-lg-4 col-md-6">
                                         <div class="article-publications-item">
@@ -39,6 +40,25 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                    @else
+                                    <div class="portfolio-area mt-5">
+                                        <div class="row g-4 parent-container">
+                                            <div class="col-lg-12">
+                                                <div class="portfolio-item">
+                                                    <div class="image" style="padding: 0px">
+                                                        <div class="text d-flex justify-content-center">
+                                                            <div class="info">
+                                                                <p class="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    
                                     
                                 </div>
                             </div>

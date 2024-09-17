@@ -19,6 +19,7 @@
                         </div>
                         <div class="portfolio-area">
                             <div class="row g-4 parent-container">
+                                @if($works->count() > 0)
                                 @foreach ($works as $work)
                                 <div class="col-lg-12">
                                     <div class="portfolio-item">
@@ -26,9 +27,11 @@
                                             <img src="{{ asset('uploads/works_images/' . $work->gambar) }}"
                                                 alt="{{ $work->judul }}" class="img-fluid w-100">
                                             <a href="{{ $work->link }}" class="full-image-preview parent-container">
-                                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="none" stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="1.5">
                                                     <path d="M6 10h8M10 6l4 4-4 4" />
-                                                </svg>                                                
+                                                </svg>
                                             </a>
                                         </div>
                                         <div class="text">
@@ -51,7 +54,20 @@
                                     </div>
                                 </div>
                                 @endforeach
-
+                                @else
+                                <div class="col-lg-12">
+                                    <div class="portfolio-item">
+                                        <div class="image" style="padding: 0px">
+                                            <div class="text d-flex justify-content-center">
+                                                <div class="info">
+                                                    <p class="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                             <div class="pagination">
                                 <div class="pagination">
