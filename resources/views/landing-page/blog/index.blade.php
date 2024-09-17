@@ -24,8 +24,8 @@
                                     <div class="col-xl-6 col-lg-4 col-md-6">
                                         <div class="article-publications-item">
                                             <div class="image">
-                                                <a href="article.html" class="d-block w-100">
-                                                    <img src="{{ asset('storage/' . $blog->gambar) }}" alt="{{ $blog->judul }}" class="img-fluid w-100">
+                                                <a href="{{ route('blog.show', $blog->slug) }}" class="d-block w-100">
+                                                    <img src="{{ asset('uploads/blog_images/' . $blog->gambar) }}" alt="{{ $blog->judul }}" class="img-fluid w-100">
                                                 </a>
                                                 <a href="{{ route('blog.show', $blog->slug) }}" class="tags">{{ $blog->type }}</a>
                                             </div>
@@ -44,11 +44,8 @@
                             </div>
                         </div>
                         <div class="pagination">
-                            <div class="pagination">
                                 {{-- pagination bootstrap 5 --}}
-                                {{ $blogs->links('vendor.pagination.custom-pagination') }}
-                            </div>
-                            
+                                {{ $blogs->links('vendor.pagination.custom-pagination') }}                            
                         </div>
                     </div>
                 </div>
