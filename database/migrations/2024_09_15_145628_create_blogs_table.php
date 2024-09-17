@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('time');
             $table->date('tanggal');
             $table->string('gambar');
+            $table->string('slug')->unique();
+            $table->text('isi');
             $table->timestamps();
         });
     }

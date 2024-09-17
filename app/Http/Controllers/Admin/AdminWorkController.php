@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Work;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+
 
 class AdminWorkController extends Controller
 {
     public function index()
     {
-        return view('admin.works.index');
+        $works = Work::all();
+        return view('admin.works.index', compact('works'));
     }
 
     public function create()
@@ -20,20 +23,39 @@ class AdminWorkController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $validated = $request->validate([
             'judulaplikasi' => 'required|string|max:255',
             'type' => 'required|string',
             'link' => 'required|url',
-            'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
-        // Handle file upload
+        // Handle file upload dan ubah ke format .webp
         if ($request->hasFile('gambarAplikasi')) {
-            $fileName = time() . '_' . $request->file('gambarAplikasi')->getClientOriginalName();
-            $request->file('gambarAplikasi')->move(public_path('uploads/works_images'), $fileName);
-        }  
+            $imagePath = $request->file('gambarAplikasi')->getPathname();
+            $extension = $request->file('gambarAplikasi')->getClientOriginalExtension();
+            $fileName = time() . '.webp';
 
-        // Create a new work entry
+            // Pilih jenis gambar berdasarkan ekstensi file yang diunggah
+            switch ($extension) {
+                case 'jpeg':
+                case 'jpg':
+                    $image = imagecreatefromjpeg($imagePath);
+                    break;
+                case 'png':
+                    $image = imagecreatefrompng($imagePath);
+                    break;
+                default:
+                    return redirect()->back()->withErrors(['gambarAplikasi' => 'Format gambar tidak didukung.']);
+            }
+
+            // Simpan gambar dalam format .webp
+            imagewebp($image, public_path('uploads/works_images/' . $fileName), 100); // 90 adalah kualitas
+            imagedestroy($image); // Hapus dari memori
+        }
+
+        // Simpan data di database
         $work = new Work();
         $work->judul = $validated['judulaplikasi'];
         $work->type = $validated['type'];
@@ -41,9 +63,10 @@ class AdminWorkController extends Controller
         $work->gambar = $fileName;
         $work->save();
 
-        // Redirect to the work index page with a success message
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('admin.work.index')->with('success', 'Work successfully created!');
     }
+
 
     public function edit($id)
     {
@@ -69,6 +92,12 @@ class AdminWorkController extends Controller
 
     public function destroy($id)
     {
-        // 
+        // hapus data work berdasarkan id
+        try {
+            Work::destroy($id);
+            return redirect()->route('admin.work.index')->with('success', 'Work successfully deleted!');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.work.index')->with('error', 'Work failed to delete!');
+        }
     }
 }
