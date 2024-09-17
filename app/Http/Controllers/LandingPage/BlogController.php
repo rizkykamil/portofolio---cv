@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\LandingPage;
 
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
 
 class BlogController extends Controller
 {
     public function index(): Factory|View
     {
-        return view(view: 'landing-page.blog.index');
+        $blogs = Blog::paginate(6);
+        return view('landing-page.blog.index', compact('blogs'));
     }
 }
