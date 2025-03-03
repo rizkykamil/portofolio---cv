@@ -12,7 +12,7 @@ use App\Http\Controllers\LandingPage\AboutController;
 use App\Http\Controllers\LandingPage\ContactController;
 use App\Http\Middleware\MaintenanceMiddleware;
 
-Route::prefix('/')->middleware(MaintenanceMiddleware::class)->group(function () {
+// Route::prefix('/')->middleware(MaintenanceMiddleware::class)->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -20,7 +20,7 @@ Route::prefix('/')->middleware(MaintenanceMiddleware::class)->group(function () 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
     Route::get('/works', [WorkController::class, 'index'])->name('works');
-});// Middleware hanya diterapkan di grup ini
+// });// Middleware hanya diterapkan di grup ini
 
 Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function () {
     Route::prefix('auth')->group(function () {
@@ -47,6 +47,6 @@ Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function
 }); // Middleware hanya diterapkan di grup ini
 
 // Route maintenance juga tanpa middleware
-Route::get('/comming-soon', function () {
-    return view('comming-soon');
-});
+// Route::get('/comming-soon', function () {
+//     return view('comming-soon');
+// });
