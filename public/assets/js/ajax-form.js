@@ -24,7 +24,9 @@ $(function () {
 
                 // Remove success message after 5 seconds  
                 setTimeout(function () {  
-                    $(formMessages).empty().removeClass('success');  
+                    $(formMessages).empty().removeClass('success');
+					// reload halaman
+					location.reload();
                 }, 5000);  
             }  
         })  
@@ -43,6 +45,8 @@ $(function () {
             // Remove error message after 5 seconds  
             setTimeout(function () {  
                 $(formMessages).empty().removeClass('error');  
+				// reload halaman
+				location.reload();
             }, 5000);  
         });  
     });  
