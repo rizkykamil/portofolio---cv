@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row g-4">
             @include('landing-page.partials.sideprofile')
+
             <div class="col-xl-8">
                 <div class="card content-box-card">
                     <div class="card-body portfolio-card contact-card">
@@ -19,7 +20,8 @@
                         <div class="contact-area">
                             <div class="leave-comments-area">
                                 <div class="comments-box">
-                                    <form id="contact-form" action="assets/mail.php" method="POST">
+                                    <form id="contact-form" action="{{route("contact.store")}}" method="POST">
+                                        @csrf
                                         <div class="row gx-3">
                                             <div class="col-md-6">
                                                 <div class="mb-4">
@@ -43,6 +45,13 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
+                                                <div class="mb-4">
+                                                    <label class="form-label">Phone</label>
+                                                    <input name="phone" required type="text"
+                                                        class="form-control shadow-none" placeholder="Phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
                                                 <div class="mb-4">
                                                     <label class="form-label">necessary</label>
                                                     <select name="necessary" class="form-select shadow-none">
@@ -110,7 +119,9 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show"
                                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p>Rizky Kamil menawarkan layanan pengembangan web penuh, dengan keahlian di bagian backend dan lebih dari 4 tahun pengalaman dalam lebih dari 10+ proyek.</p>
+                                                    <p>Rizky Kamil menawarkan layanan pengembangan web penuh, dengan
+                                                        keahlian di bagian backend dan lebih dari 4 tahun pengalaman
+                                                        dalam lebih dari 10+ proyek.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -133,7 +144,10 @@
                                             <div id="collapseTwo" class="accordion-collapse collapse"
                                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p>Anda dapat menghubungi Rizky Kamil melalui form kontak di halaman ini, atau dengan menekan tombol "Book A Call" untuk membuat janji konsultasi, serta bisa mengirim email melalui tombol "Copy Email".
+                                                    <p>Anda dapat menghubungi Rizky Kamil melalui form kontak di halaman
+                                                        ini, atau dengan menekan tombol "Book A Call" untuk membuat
+                                                        janji konsultasi, serta bisa mengirim email melalui tombol "Copy
+                                                        Email".
                                                     </p>
                                                 </div>
                                             </div>
@@ -157,7 +171,10 @@
                                             <div id="collapseThree" class="accordion-collapse collapse"
                                                 aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p>Rizky Kamil adalah pengembang web berpengalaman dengan spesialisasi di backend development. Ia telah mengerjakan berbagai proyek besar selama 4 tahun terakhir dan berhasil menangani lebih dari 10+ proyek.
+                                                    <p>Rizky Kamil adalah pengembang web berpengalaman dengan
+                                                        spesialisasi di backend development. Ia telah mengerjakan
+                                                        berbagai proyek besar selama 4 tahun terakhir dan berhasil
+                                                        menangani lebih dari 10+ proyek.
                                                     </p>
                                                 </div>
                                             </div>
@@ -167,7 +184,8 @@
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                                     aria-expanded="false" aria-controls="collapseFour">
-                                                    Apakah Rizky Kamil menerima kolaborasi untuk proyek desain dan pengembangan?
+                                                    Apakah Rizky Kamil menerima kolaborasi untuk proyek desain dan
+                                                    pengembangan?
                                                     <span class="ms-auto">
                                                         <span class="icon ms-4">
                                                             <img class="icon-plus" src="assets/img/icons/plus.svg"
@@ -181,7 +199,9 @@
                                             <div id="collapseFour" class="accordion-collapse collapse"
                                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p>Ya, Rizky Kamil terbuka untuk kolaborasi dalam pengembangan web dan desain. Anda dapat mengisi form kontak di halaman ini untuk mendiskusikan ide atau kebutuhan Anda.
+                                                    <p>Ya, Rizky Kamil terbuka untuk kolaborasi dalam pengembangan web
+                                                        dan desain. Anda dapat mengisi form kontak di halaman ini untuk
+                                                        mendiskusikan ide atau kebutuhan Anda.
                                                     </p>
                                                 </div>
                                             </div>
@@ -191,7 +211,8 @@
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapseFive"
                                                     aria-expanded="false" aria-controls="collapseFive">
-                                                    Di mana saya bisa melihat proyek-proyek yang telah dikerjakan oleh Rizky Kamil?
+                                                    Di mana saya bisa melihat proyek-proyek yang telah dikerjakan oleh
+                                                    Rizky Kamil?
                                                     <span class="ms-auto">
                                                         <span class="icon ms-4">
                                                             <img class="icon-plus" src="assets/img/icons/plus.svg"
@@ -205,7 +226,9 @@
                                             <div id="collapseFive" class="accordion-collapse collapse"
                                                 aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p>Anda dapat melihat portofolio proyek Rizky Kamil dengan mengunjungi halaman "Works" di situs ini. Di sana terdapat daftar lengkap proyek-proyek yang telah dikerjakan.
+                                                    <p>Anda dapat melihat portofolio proyek Rizky Kamil dengan
+                                                        mengunjungi halaman "Works" di situs ini. Di sana terdapat
+                                                        daftar lengkap proyek-proyek yang telah dikerjakan.
                                                     </p>
                                                 </div>
                                             </div>

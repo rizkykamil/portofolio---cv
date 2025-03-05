@@ -1,57 +1,49 @@
-$(function () {
+$(function () {  
+    var form = $('#contact-form');  
+    var formMessages = $('.ajax-response');  
 
-	// Get the form.
-	var form = $('#contact-form');
+    $(form).submit(function (e) {  
+        e.preventDefault();  
+        var formData = $(form).serialize();  
 
-	// Get the messages div.
-	var formMessages = $('.ajax-response');
+        $.ajax({  
+            type: 'POST',  
+            url: $(form).attr('action'),  
+            data: formData,  
+            dataType: 'json'  // Tambahkan ini untuk mengharapkan respons JSON  
+        })  
+        .done(function (response) {  
+            if (response.status === 'success') {  
+                $(formMessages).removeClass('error');  
+                $(formMessages).addClass('success');  
+                $(formMessages).text(response.message);  
 
-	// Set up an event listener for the contact form.
-	$(form).submit(function (e) {
-		// Stop the browser from submitting the form.
-		e.preventDefault();
+                // Clear form  
+                $('#contact-form input,#contact-form textarea').val('');  
+                $('#contact-form select[name="budget"]').prop('selectedIndex', 0);  
 
-		// Serialize the form data.
-		var formData = $(form).serialize();
+                // Remove success message after 5 seconds  
+                setTimeout(function () {  
+                    $(formMessages).empty().removeClass('success');  
+                }, 5000);  
+            }  
+        })  
+        .fail(function (xhr) {  
+            // Tangani error dari respons JSON  
+            $(formMessages).removeClass('success');  
+            $(formMessages).addClass('error');  
 
-		// Submit the form using AJAX.
-		$.ajax({
-			type: 'POST',
-			url: $(form).attr('action'),
-			data: formData
-		})
-			.done(function (response) {
-				// Make sure that the formMessages div has the 'success' class.
-				$(formMessages).removeClass('error');
-				$(formMessages).addClass('success');
+            var errorMessage = 'Oops! An error occurred and your message could not be sent.';  
+            if (xhr.responseJSON && xhr.responseJSON.message) {  
+                errorMessage = xhr.responseJSON.message;  
+            }  
 
-				// Set the message text.
-				$(formMessages).text(response);
+            $(formMessages).text(errorMessage);  
 
-				// Clear the form.
-				$('#contact-form input,#contact-form textarea').val('');
-				$('#contact-form select[name="budget"]').prop('selectedIndex', 0);
-				// Remove success message after 2 seconds
-				setTimeout(function () {
-					$(formMessages).empty().removeClass('success');
-				}, 5000);
-			})
-			.fail(function (data) {
-				// Make sure that the formMessages div has the 'error' class.
-				$(formMessages).removeClass('success');
-				$(formMessages).addClass('error');
-
-				// Set the message text.
-				if (data.responseText !== '') {
-					$(formMessages).text(data.responseText);
-				} else {
-					$(formMessages).text('Oops! An error occured and your message could not be sent.');
-				}
-				// Remove error message after 2 seconds
-				setTimeout(function () {
-					$(formMessages).empty().removeClass('error');
-				}, 5000);
-			});
-	});
-
-});
+            // Remove error message after 5 seconds  
+            setTimeout(function () {  
+                $(formMessages).empty().removeClass('error');  
+            }, 5000);  
+        });  
+    });  
+});  
