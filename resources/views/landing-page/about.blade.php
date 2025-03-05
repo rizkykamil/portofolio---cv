@@ -55,177 +55,108 @@
                             </div>
                         </div>
                         <div class="client-feedback">
-                            <h2 class="main-common-title">Trusted By 1200+ Clients
+                            <h2 class="main-common-title">Testimoni Client
                             </h2>
                             <div class="row client-feedback-slider">
-                                <div class="col-lg-6">
-                                    <div class="feedback-item">
-                                        <div class="feedback-top-info">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
+                                @if ($clients->count() > 0)
+                                    @foreach ($clients as $client)
+                                    <div class="col-lg-6">
+                                        <div class="feedback-item">
+                                            <div class="feedback-top-info">
+                                                <div class="rating">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div class="website">
+                                                    <a href="{{$client->website}}">{{$client->website}}
+                                                        <svg class="arrow-up" width="14" height="15" viewBox="0 0 14 15"
+                                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M9.91634 4.5835L4.08301 10.4168" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                            <path d="M4.66699 4.5835H9.91699V9.8335" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+                                                        </svg>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="website">
-                                                <a href="#">Framer.com
-                                                    <svg class="arrow-up" width="14" height="15" viewBox="0 0 14 15"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M9.91634 4.5835L4.08301 10.4168" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path d="M4.66699 4.5835H9.91699V9.8335" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
+                                            <div class="details">
+                                                <p>
+                                                    "{{$client->testimoni}}"
+                                                </p>
+                                            </div>
+                                            <div class="designation">
+                                                <p><span>{{$client->nama}}</span> - {{$client->pekerjaan}}</p>
                                             </div>
                                         </div>
-                                        <div class="details">
-                                            <p>
-                                                "We've been using BentoFolio for over a year now, and I must say, it's
-                                                been a game-changer
-                                                for us. The user interface is intuitive and the feature.
-                                            </p>
-                                        </div>
-                                        <div class="designation">
-                                            <p><span>Oliver Clain</span> - Product Designer</p>
+                                    </div
+                                    @endforeach
+                                    @else
+                                    <div class="portfolio-area mt-5">
+                                        <div class="row g-4 parent-container">
+                                            <div class="col-lg-12">
+                                                <div class="portfolio-item">
+                                                    <div class="image" style="padding: 0px">
+                                                        <div class="text d-flex justify-content-center">
+                                                            <div class="info">
+                                                                <p class="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="feedback-item">
-                                        <div class="feedback-top-info">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="website">
-                                                <a href="#">Framer.com
-                                                    <svg class="arrow-up" width="14" height="15" viewBox="0 0 14 15"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M9.91634 4.5835L4.08301 10.4168" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path d="M4.66699 4.5835H9.91699V9.8335" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="details">
-                                            <p>
-                                                "We've been using BentoFolio for over a year now, and I must say, it's
-                                                been a game-changer
-                                                for us. The user interface is intuitive and the feature.
-                                            </p>
-                                        </div>
-                                        <div class="designation">
-                                            <p><span>Oliver Clain</span> - Product Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="feedback-item">
-                                        <div class="feedback-top-info">
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                            <div class="website">
-                                                <a href="#">Framer.com
-                                                    <svg class="arrow-up" width="14" height="15" viewBox="0 0 14 15"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M9.91634 4.5835L4.08301 10.4168" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                        <path d="M4.66699 4.5835H9.91699V9.8335" stroke-linecap="round"
-                                                            stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="details">
-                                            <p>
-                                                "We've been using BentoFolio for over a year now, and I must say, it's
-                                                been a game-changer
-                                                for us. The user interface is intuitive and the feature.
-                                            </p>
-                                        </div>
-                                        <div class="designation">
-                                            <p><span>Oliver Clain</span> - Product Designer</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endif
+
                             </div>
                         </div>
                         <div class="article-publications">
                             <h2 class="main-common-title">Article and Publications</h2>
                             <div class="article-publications-main">
                                 <div class="row article-publications-slider">
+                                    @if ($blogs->count() > 0)
+                                    @foreach ($blogs as $blog)
                                     <div class="col-lg-6">
                                         <div class="article-publications-item">
                                             <div class="image">
-                                                <a href="article.html" class="d-block w-100">
-                                                    <img src="assets/img/blog/blog-img-1.jpg" alt="blog-img-1"
+                                                <a href="{{route("blog.detail", $blog->slug)}}" class="d-block w-100">
+                                                    <img src="{{asset("uploads/blog_images/".$blog->gambar)}}" alt="{{$blog->judul}}"
                                                         class="img-fluid w-100">
                                                 </a>
-                                                <a href="article.html" class="tags">Development</a>
+                                                <a href="{{route("blog.detail", $blog->slug)}}" class="tags">{{$blog->type}}</a>
                                             </div>
                                             <div class="text">
-                                                <a href="article.html" class="title">Want To Upgrade Your Brain? Stop
-                                                    Doing These 7
-                                                    Things</a>
+                                                <a href="{{route("blog.detail", $blog->slug)}}" class="title">{{$blog->judul}}</a>
                                                 <ul class="list-unstyled">
-                                                    <li>15 min read</li>
-                                                    <li>Nov 6, 2023</li>
+                                                    <li>{{$blog->time}} min read</li>
+                                                    <li>{{$blog->tanggal}}</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="article-publications-item">
-                                            <div class="image">
-                                                <a href="article.html" class="d-block w-100">
-                                                    <img src="assets/img/blog/blog-img-2.jpg" alt="blog-img-2"
-                                                        class="img-fluid w-100">
-                                                </a>
-                                                <a href="article.html" class="tags">Development</a>
-                                            </div>
-                                            <div class="text">
-                                                <a href="article.html" class="title">Want To Upgrade Your Brain? Stop
-                                                    Doing These 7
-                                                    Things</a>
-                                                <ul class="list-unstyled">
-                                                    <li>15 min read</li>
-                                                    <li>Nov 6, 2023</li>
-                                                </ul>
+                                    @endforeach
+                                    @else
+                                    <div class="portfolio-area mt-5">
+                                        <div class="row g-4 parent-container">
+                                            <div class="col-lg-12">
+                                                <div class="portfolio-item">
+                                                    <div class="image" style="padding: 0px">
+                                                        <div class="text d-flex justify-content-center">
+                                                            <div class="info">
+                                                                <p class="subtitle">Sabar ya lagi dibuat 🙏🏻😭</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="article-publications-item">
-                                            <div class="image">
-                                                <a href="article.html" class="d-block w-100">
-                                                    <img src="assets/img/blog/blog-img-3.jpg" alt="blog-img-3"
-                                                        class="img-fluid w-100">
-                                                </a>
-                                                <a href="article.html" class="tags">Development</a>
-                                            </div>
-                                            <div class="text">
-                                                <a href="article.html" class="title">Want To Upgrade Your Brain? Stop
-                                                    Doing These 7
-                                                    Things</a>
-                                                <ul class="list-unstyled">
-                                                    <li>15 min read</li>
-                                                    <li>Nov 6, 2023</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

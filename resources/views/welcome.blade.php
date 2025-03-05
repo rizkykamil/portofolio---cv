@@ -30,13 +30,13 @@
                 <div class="container">
                     <div class="menu-container">
                         <div class="logo">
-                            <a class="navbar-brand me-0" href="index.html">
+                            <a class="navbar-brand me-0" href="{{route("home")}}">
                                 <span>Kamil<span class="primary">Folio</span></span>
                             </a>
                         </div>
                         <div class="navbar-main d-flex flex-grow-1">
                             <div class="logo inner-logo d-block d-xl-none">
-                                <a class="navbar-brand me-0" href="index.html">
+                                <a class="navbar-brand me-0" href="{{route("home")}}">
                                     <span>Kamil<span class="primary">Folio</span></span>
                                 </a>
                             </div>
@@ -55,7 +55,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html">
+                                    <a class="nav-link" href="{{route("about")}}">
                                         <svg class="nav-icon" viewBox="0 0 18 18" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -72,7 +72,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="services.html">
+                                    <a class="nav-link" href="{{route("services")}}">
                                         <svg class="nav-icon" viewBox="0 0 16 16" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="portfolio.html">
+                                    <a class="nav-link" href="{{route("works")}}">
                                         <svg class="nav-icon" viewBox="0 0 18 17" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -104,7 +104,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="blog.html">
+                                    <a class="nav-link" href="{{route("blog.index")}}">
                                         <svg class="nav-icon" viewBox="0 0 17 16" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -118,7 +118,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">
+                                    <a class="nav-link" href="{{route("contact")}}">
                                         <svg class="nav-icon" viewBox="0 0 18 17" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.66699 5.5H12.3337" stroke-width="1.4" stroke-linecap="round"
@@ -614,7 +614,10 @@
         <footer class="footer-area">
             <div class="container">
                 <div class="text text-center">
-                    <p>@ BentoFolio 2024, Design By <a href="#">MarvelTheme</a></p>
+                    @php
+                        $currentYear = date('Y');
+                    @endphp
+                    <p>Copyright &copy; {{ $currentYear }} Rizky Kamil</p>
                 </div>
             </div>
         </footer>

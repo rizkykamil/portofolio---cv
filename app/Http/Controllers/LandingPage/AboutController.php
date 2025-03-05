@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers\LandingPage;
 
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Client;
 use Illuminate\Http\Request;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
 
 class AboutController extends Controller
 {
     public function index()
     {
-        return view('landing-page.about');
+        $blogs = Blog::all();
+        $clients = Client::all();
+        return view('landing-page.about', compact('blogs', 'clients'));
     }
 }
 

@@ -130,7 +130,7 @@
                                             <div class="col-xl-4 col-md-4 col-sm-6 col-6">
                                                 <div class="expertise-item">
                                                     <div class="image text-center">
-                                                        <img src="https://laravel.com/img/logomark.min.svg" alt="figma">
+                                                        <img src="{{asset("assets/img/icons/laravel.svg")}}" alt="Laravel">
                                                     </div>
                                                     <div class="text">
                                                         <h4 class="title">Laravel</h4>
@@ -202,7 +202,7 @@
                     <div class="card card-projects">
                         <div class="card-body">
 
-                            <h3 class="card-title">Recent Projects <a class="link-btn" href="portfolio.html">All
+                            <h3 class="card-title">Recent Projects <a class="link-btn" href="{{route("works")}}">All
                                     Projects
                                     <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -324,7 +324,7 @@
                                 <h3 class="card-title">Let's👋
                                     <span class="d-block">Work Together</span>
                                 </h3>
-                                <a class="link-btn" href="contact.html"> Let's Talk
+                                <a class="link-btn" href="{{route("contact")}}"> Let's Talk
                                     <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path d="M17.5 11.6665V6.6665H12.5" stroke-width="1.5" stroke-linecap="round"
