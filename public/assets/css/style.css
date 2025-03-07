@@ -2571,3 +2571,64 @@ p {
 	background-color: var(--primary);
 	color: var(--white);
 }
+
+/* modal dark theme */
+
+.dark-theme .modal-content {
+	background-color: var(--dark-theme-black);
+}
+
+.dark-theme .modal-header {
+	background-color: var(--dark-theme-black);
+}
+
+.dark-theme .modal-header .modal-title {
+	color: var(--dark-theme-white);
+}
+
+.dark-theme .modal-body p {
+	color: var(--dark-theme-light-white);
+}
+.dark-theme .modal-body input {
+	background-color: #000;
+	color: var(--white);
+}
+
+.dark-theme .modal-body input::placeholder {
+	color: var(--dark-theme-light-white);
+}
+
+.dark-theme .modal-footer .btn-primary {
+	color: var(--white);
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 8px;
+}
+
+.dark-theme .modal-footer .btn-primary:hover {
+	background-color: #2563EB;
+
+}
+
+.dark-theme .modal-footer .btn-secondary {
+	border: 1px solid var(--black);
+    color: var(--dark-theme-light-white);
+}
+
+.dark-theme .modal-footer .btn-secondary:hover {
+	background-color: #1A1F2C;
+    color: var(--white);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

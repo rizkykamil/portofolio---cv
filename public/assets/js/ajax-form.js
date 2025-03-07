@@ -1,53 +1,89 @@
-$(function () {  
+$(document).ready(function () {  
     var form = $('#contact-form');  
     var formMessages = $('.ajax-response');  
 
+    // Fungsi untuk mengenerate soal perkalian acak  
+    function generateMathQuestion() {  
+        var num1 = Math.floor(Math.random() * 10) + 1;  // Angka pertama antara 1 dan 10  
+        var num2 = Math.floor(Math.random() * 10) + 1;  // Angka kedua antara 1 dan 10  
+        var correctAnswer = num1 * num2;  
+        
+        // Pastikan elemen-elemen ini ada di DOM  
+        $('#num1').text(num1);  
+        $('#num2').text(num2);  
+        $('#correct-answer').val(correctAnswer);  
+        
+        // Reset input dan sembunyikan pesan error  
+        $('#answer').val('');  
+        $('#error-message').hide();  
+    }  
+
+    // Tambahkan event listener untuk memastikan modal terbuka  
+    $('#verificationModal').on('show.bs.modal', function () {  
+        console.log("Modal terbuka!");  
+        generateMathQuestion();  
+    });  
+
+    // Menangani klik kirim pada form  
     $(form).submit(function (e) {  
         e.preventDefault();  
-        var formData = $(form).serialize();  
+        
+        // Pastikan menggunakan Bootstrap modal method  
+        $('#verificationModal').modal('show');  
+    });  
 
-        $.ajax({  
-            type: 'POST',  
-            url: $(form).attr('action'),  
-            data: formData,  
-            dataType: 'json'  // Tambahkan ini untuk mengharapkan respons JSON  
-        })  
-        .done(function (response) {  
-            if (response.status === 'success') {  
-                $(formMessages).removeClass('error');  
-                $(formMessages).addClass('success');  
-                $(formMessages).text(response.message);  
+    // Menangani klik kirim jawaban di modal  
+    $('#verifyAnswerBtn').click(function () {  
+        var userAnswer = $('#answer').val().trim();  
+        var correctAnswer = $('#correct-answer').val();  
 
-                // Clear form  
-                $('#contact-form input,#contact-form textarea').val('');  
-                $('#contact-form select[name="budget"]').prop('selectedIndex', 0);  
+        console.log("Jawaban Pengguna: " + userAnswer);  
+        console.log("Jawaban Benar: " + correctAnswer);  
 
-                // Remove success message after 5 seconds  
+        if (userAnswer == correctAnswer) {  
+            var formData = $(form).serialize();  
+
+            $.ajax({  
+                type: 'POST',  
+                url: $(form).attr('action'),  
+                data: formData,  
+                dataType: 'json'  
+            })  
+            .done(function (response) {  
+                if (response.status === 'success') {  
+                    $(formMessages).removeClass('error');  
+                    $(formMessages).addClass('success');  
+                    $(formMessages).text(response.message);  
+
+                    $('#contact-form input, #contact-form textarea').val('');  
+                    $('#contact-form select[name="budget"]').prop('selectedIndex', 0);  
+
+                    setTimeout(function () {  
+                        $(formMessages).empty().removeClass('success');  
+                        location.reload();  
+                    }, 5000);  
+                }  
+            })  
+            .fail(function (xhr) {  
+                $(formMessages).removeClass('success');  
+                $(formMessages).addClass('error');  
+
+                var errorMessage = 'Oops! An error occurred and your message could not be sent.';  
+                if (xhr.responseJSON && xhr.responseJSON.message) {  
+                    errorMessage = xhr.responseJSON.message;  
+                }  
+
+                $(formMessages).text(errorMessage);  
+
                 setTimeout(function () {  
-                    $(formMessages).empty().removeClass('success');
-					// reload halaman
-					location.reload();
+                    $(formMessages).empty().removeClass('error');  
+                    location.reload();  
                 }, 5000);  
-            }  
-        })  
-        .fail(function (xhr) {  
-            // Tangani error dari respons JSON  
-            $(formMessages).removeClass('success');  
-            $(formMessages).addClass('error');  
-
-            var errorMessage = 'Oops! An error occurred and your message could not be sent.';  
-            if (xhr.responseJSON && xhr.responseJSON.message) {  
-                errorMessage = xhr.responseJSON.message;  
-            }  
-
-            $(formMessages).text(errorMessage);  
-
-            // Remove error message after 5 seconds  
-            setTimeout(function () {  
-                $(formMessages).empty().removeClass('error');  
-				// reload halaman
-				location.reload();
-            }, 5000);  
-        });  
+            });  
+            
+            $('#verificationModal').modal('hide');  
+        } else {  
+            $('#error-message').show();  
+        }  
     });  
 });  

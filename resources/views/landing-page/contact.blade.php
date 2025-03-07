@@ -71,18 +71,15 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <button class="submit-btn" type="submit">
+                                                <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal">
                                                     Send Message
-                                                    <svg class="icon" width="20" height="20" viewBox="0 0 20 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M17.5 11.6665V6.6665H12.5" stroke="white"
-                                                            stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                        <path d="M17.5 6.6665L10 14.1665L2.5 6.6665" stroke="white"
-                                                            stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
+                                                    <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M17.5 11.6665V6.6665H12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M17.5 6.6665L10 14.1665L2.5 6.6665" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                                                     </svg>
                                                 </button>
+                                                
+                                                
                                             </div>
                                         </div>
                                     </form>
@@ -242,6 +239,85 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="verificationModal" tabindex="-1" aria-labelledby="verificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="verificationModalLabel">Verifikasi Manusia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Untuk memastikan Anda bukan bot, selesaikan soal berikut:</p>
+                    <div id="math-question">
+                        <!-- Soal perkalian akan muncul di sini -->
+                        <p class="mb-2"><span id="num1"></span> × <span id="num2"></span> = ?</p>
+                        <input type="text" id="answer" class="form-control" placeholder="Masukkan jawaban">
+                        <input type="hidden" id="correct-answer">
+                    </div>
+                    <p id="error-message" class="text-danger mt-2" style="display: none;">Jawaban salah, coba lagi.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" id="verifyAnswerBtn">Kirim Jawaban</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 </section>
+
+{{-- <script>
+    
+// Fungsi untuk mengenerate soal perkalian acak
+function generateMathQuestion() {
+    var num1 = Math.floor(Math.random() * 10) + 1;  // Angka pertama antara 1 dan 10
+    var num2 = Math.floor(Math.random() * 10) + 1;  // Angka kedua antara 1 dan 10
+    var correctAnswer = num1 * num2;
+
+    // Menampilkan soal di modal
+    document.getElementById('num1').textContent = num1;
+    document.getElementById('num2').textContent = num2;
+    document.getElementById('correct-answer').value = correctAnswer;
+}
+
+// Menangani tombol kirim pada form
+document.querySelector('.submit-btn').addEventListener('click', function(event) {
+    // Mencegah form untuk langsung dikirim
+    event.preventDefault();
+    
+    // Menampilkan modal verifikasi
+    $('#verificationModal').modal('show');
+    
+    // Mengenerate soal perkalian setiap kali modal muncul
+    generateMathQuestion();
+});
+
+// Menangani klik tombol kirim jawaban di modal
+document.getElementById('verifyAnswerBtn').addEventListener('click', function() {
+    var userAnswer = document.getElementById('answer').value.trim();
+    var correctAnswer = document.getElementById('correct-answer').value;
+
+    // Verifikasi jawaban
+    if (userAnswer == correctAnswer) {
+        // Jika jawabannya benar, kirim form
+        document.getElementById('contact-form').submit();
+        $('#verificationModal').modal('hide');  // Menutup modal
+    } else {
+        // Jika jawabannya salah, tampilkan pesan error
+        document.getElementById('error-message').style.display = 'block';
+    }
+});
+
+
+</script> --}}
 
 @endsection
