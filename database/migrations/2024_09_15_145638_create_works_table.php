@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('type');
-            $table->string('link');
+            $table->string('link')->nullable();
+            $table->string('slug');
+            $table->text('overview')->nullable();
+            $table->text('client')->nullable();
+            $table->text('challenge')->nullable();
             $table->string('gambar');
             $table->timestamps();
         });

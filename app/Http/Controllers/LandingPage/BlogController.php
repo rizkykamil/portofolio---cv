@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\Factory;
 
 class BlogController extends Controller
 {
-    public function index(): Factory|View
+    public function index()
     {
         $blogs = Blog::paginate(6);
         return view('landing-page.blog.index', compact('blogs'));

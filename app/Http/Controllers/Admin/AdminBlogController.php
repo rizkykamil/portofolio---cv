@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -60,7 +61,7 @@ class AdminBlogController extends Controller
         $blog->judul = $validated['judulblog'];
         $blog->type = $validated['type'];
         $blog->time = $validated['time'];
-        $blog->slug = \Str::slug($validated['judulblog']);
+        $blog->slug = Str::slug($validated['judulblog']);
         $blog->isi = $validated['isiblog'];
         $blog->tanggal = $validated['tanggal'];
         $blog->gambar = $fileName; // Simpan nama file .webp

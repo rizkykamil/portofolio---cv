@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="text">
                                             <div class="info">
-                                                <a href="{{ $work->link }}" class="title">{{ $work->judul }}</a>
+                                                <a href="{{ route('works.detail', $work->slug) }}" class="title">{{ $work->judul }}</a>
                                                 <p class="subtitle">{{ $work->type }}</p>
                                             </div>
                                             <div class="visite-btn">

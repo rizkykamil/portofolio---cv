@@ -40,6 +40,30 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="client" class="form-label">Client</label>
+                            <input type="text" id="client" name="client" class="form-control @error('client') is-invalid @enderror" value="{{ old('client') }}">
+                            @error('client')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="overview" class="form-label">Overview</label>
+                            <textarea name="overview" id="overview" class="form-control @error('overview') is-invalid @enderror" value="{{ old('overview') }}"></textarea>
+                            @error('overview')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>                        
+
+                        <div class="mb-3">
+                            <label for="challenge" class="form-label">Challenge</label>
+                            <textarea name="challenge" id="challenge" class="form-control @error('challenge') is-invalid @enderror" value="{{ old('challenge') }}"></textarea>
+                            @error('challenge')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     
                         <div class="mb-3">
                             <label for="gambarAplikasi" class="form-label">Gambar Aplikasi</label>

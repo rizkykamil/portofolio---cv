@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Work;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
@@ -28,6 +29,9 @@ class AdminWorkController extends Controller
             'judulaplikasi' => 'required|string|max:255',
             'type' => 'required|string',
             'link' => 'required|url',
+            'overview' => 'required|string',
+            'client' => 'required|string',
+            'challenge' => 'required|string',
             'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
@@ -60,6 +64,10 @@ class AdminWorkController extends Controller
         $work->judul = $validated['judulaplikasi'];
         $work->type = $validated['type'];
         $work->link = $validated['link'];
+        $work->overview = $validated['overview'];
+        $work->client = $validated['client'];
+        $work->challenge = $validated['challenge'];
+        $work->slug = Str::slug($validated['judulaplikasi']);
         $work->gambar = $fileName;
         $work->save();
 

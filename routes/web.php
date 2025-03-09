@@ -20,6 +20,7 @@ use App\Http\Middleware\MaintenanceMiddleware;
     Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
     Route::get('/works', [WorkController::class, 'index'])->name('works');
+    Route::get('/works/{slug}', [WorkController::class, 'detail'])->name('works.detail');
 // });// Middleware hanya diterapkan di grup ini
 
 Route::prefix('auth')->group(function () {
