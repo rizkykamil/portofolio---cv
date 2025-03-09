@@ -25,13 +25,13 @@
                                     <div class="col-xl-6 col-lg-4 col-md-6">
                                         <div class="article-publications-item">
                                             <div class="image">
-                                                <a href="{{ route('blog.show', $blog->slug) }}" class="d-block w-100">
+                                                <a href="{{ route('blog.detail', $blog->slug) }}" class="d-block w-100">
                                                     <img src="{{ asset('uploads/blog_images/' . $blog->gambar) }}" alt="{{ $blog->judul }}" class="img-fluid w-100">
                                                 </a>
-                                                <a href="{{ route('blog.show', $blog->slug) }}" class="tags">{{ $blog->type }}</a>
+                                                <a href="{{ route('blog.detail', $blog->slug) }}" class="tags">{{ $blog->type }}</a>
                                             </div>
                                             <div class="text">
-                                                <a href="{{ route('blog.show', $blog->slug) }}" class="title">{{ $blog->judul }}</a>
+                                                <a href="{{ route('blog.detail', $blog->slug) }}" class="title">{{ $blog->judul }}</a>
                                                 <ul class="list-unstyled">
                                                     <li>{{ $blog->time }} min read</li>
                                                     <li>{{ $blog->tanggal }}</li>

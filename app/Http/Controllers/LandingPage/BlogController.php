@@ -15,4 +15,10 @@ class BlogController extends Controller
         $blogs = Blog::paginate(6);
         return view('landing-page.blog.index', compact('blogs'));
     }
+
+    public function show($slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+        return view('landing-page.blog.detail', compact('blog'));
+    }
 }
