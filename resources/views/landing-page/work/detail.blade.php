@@ -26,7 +26,7 @@
                     <div class="card-body portfolio-card">
                         <div class="portfolio-details-area">
                             <div class="main-image">
-                                <img src="assets/img/projects/project-details-1.png" alt="project-details-1">
+                                <img src="{{ asset('uploads/works_images/' . $work->gambar) }}" alt="project-details-1">
                             </div>
                             <div class="portfolio-details-text">
                                 <div class="short-info">
@@ -66,100 +66,22 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="image-item">
-                                            <img src="assets/img/projects/project-details-2.png" alt="project-details-2"
+                                            <img src="{{ asset('uploads/works_images/' . $work->gambar) }}" alt="project-details-2"
                                                 class="img-fluid w-100">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="image-item">
-                                            <img src="assets/img/projects/project-details-3.png" alt="project-details-3"
+                                            <img src="{{ asset('uploads/works_images/' . $work->gambar) }}" alt="project-details-3"
                                                 class="img-fluid w-100">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="more-info-block">
-                                <h3 class="more-info-title">Challenges</h3>
-                                <p>Web design comes with its own set of challenges, ranging from technical
-                                    issues to user
-                                    experience considerations. Here are some common challenges faced by web
-                                    designers. Web design
-                                    encompasses the process of creating and designing websites It involves a
-                                    combination of
-                                    different skills and disciplines to produce a visually appealing and
-                                    user-friendly website.
-                                    Here's an overview of key aspects of web design.</p>
-                                <h5 class="more-info-subtitle">Responsive Design:</h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <b>Challenge:</b> Ensuring that a website looks and functions well
-                                        on various devices and
-                                        screen
-                                        sizes.
-                                    </li>
-                                    <li>
-                                        <b>Solution:</b> Use responsive design techniques, such as flexible
-                                        grids and media queries.
-                                    </li>
-                                </ul>
-                                <h5 class="more-info-subtitle">Browser Compatibility:
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <b>Challenge:</b> Different browsers may interpret code differently,
-                                        leading to
-                                        inconsistencies
-                                        in the website's appearance.
-                                    </li>
-                                    <li>
-                                        <b>Solution:</b> Test the website on multiple browsers and use
-                                        compatibility libraries or
-                                        polyfills when necessary.
-                                    </li>
-                                </ul>
-
-                                <h5 class="more-info-subtitle">User Experience (UX):
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <b>Challenge:</b> Creating a seamless and intuitive user experience
-                                        that keeps visitors
-                                        engaged.
-                                    </li>
-                                    <li>
-                                        <b> Solution:</b>
-                                        Conduct user testing, design user-friendly interfaces, and
-                                        prioritize accessibility to ensure
-                                        a
-                                        positive user experience
-                                    </li>
-                                </ul>
-                                <h5 class="more-info-subtitle">Compliance and Accessibility:
-                                </h5>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <b>Challenge:</b> Creating a seamless and intuitive user experience
-                                        that keeps visitors
-                                        engaged.
-                                    </li>
-                                    <li>
-                                        <b>Solution:</b> Conduct user testing, design user-friendly
-                                        interfaces, and prioritize
-                                        accessibility to ensure a positive user experience
-                                    </li>
-                                </ul>
-
-                                <h3 class="more-info-title">Results/Conclusion:</h3>
-                                <p>The website design and development for FlexiFlow successfully achieved
-                                    its objectives, leading
-                                    to increased user engagement, improved conversion rates, and positive
-                                    feedback from the target
-                                    audience. The combination of user-centric design, modern visuals, and a
-                                    seamless shopping
-                                    experience resulted in a more competitive and appealing online presence
-                                    for the company. Ongoing
-                                    monitoring and potential iterative improvements will be crucial to
-                                    maintaining and enhancing.
+                                <h4 class="card-title">Challenge</h4>
+                                <p>
+                                    {!! $work->challenge !!}
                                 </p>
                             </div>
                             <div class="prev-and-next-btn">

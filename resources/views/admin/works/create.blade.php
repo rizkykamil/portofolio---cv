@@ -97,6 +97,14 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        <div class="mb-3">
+                            <label for="detail_images" class="form-label">Detail Images</label>
+                            <input class="form-control @error('detail_images') is-invalid @enderror" name="detail_images[]" type="file" id="detail_images" multiple>
+                            @error('detail_images')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                     
                         <div class="my-4">
                             <a href="{{ route('admin.work.index') }}" class="btn btn-secondary">Back</a>

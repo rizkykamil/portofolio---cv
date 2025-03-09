@@ -6,6 +6,7 @@ use App\Models\Work;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 
@@ -32,7 +33,8 @@ class AdminWorkController extends Controller
             'overview' => 'required|string',
             'client' => 'required|string',
             'challenge' => 'required|string',
-            'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
+            // 'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            // 'detail_images' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
 
         // Handle file upload dan ubah ke format .webp
@@ -70,6 +72,16 @@ class AdminWorkController extends Controller
         $work->slug = Str::slug($validated['judulaplikasi']);
         $work->gambar = $fileName;
         $work->save();
+
+        if ($request->hasFile('detail_images')) {
+            foreach ($request->file('detail_images') as $image) {
+                $imagePath = $image->store('works/detail', 'public');
+                DB::table('work_images')->insert([
+                    'work_id' => $work->id,
+                    'image' => $imagePath,
+                ]);
+            }
+        }
 
         // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('admin.work.index')->with('success', 'Work successfully created!');
