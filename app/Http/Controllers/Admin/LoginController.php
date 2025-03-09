@@ -9,19 +9,20 @@ use Illuminate\Contracts\View\Factory;
 
 class LoginController extends Controller
 {
-    public function index(): Factory|View
+    public function index()
     {
-        return view(view: 'admin.auth.login');
+        return view('admin.auth.login');
     }
 
-    // public function authenticate(Request $request): mixed|RedirectResponse
-    // {
-    //     $credentials = $request->only(keys: 'email', 'password');
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only( 'email', 'password');
 
-    //     if (auth()->attempt(credentials: $credentials)) {
-    //         return redirect()->route(route: 'dashboard');
-    //     }
 
-    //     return back()->with(key: 'error', value: 'Invalid credentials');
-    // }
+        if (auth()->attempt($credentials)) {
+            return redirect()->route('admin.blog.index');
+        }
+
+        return back()->with('error', 'Invalid credentials');
+    }
 }

@@ -22,6 +22,11 @@
 
     <body class="bg-color">
 
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <!-- Begin page -->
         <div class="container-fluid">
             <div class="row vh-100">
@@ -48,15 +53,16 @@
                                             </div>
             
                                             <div class="pt-0">
-                                                <form action="index.html" class="my-4">
+                                                <form action="{{route('login.authenticate')}}" method="POST" class="my-4">
+                                                    @csrf
                                                     <div class="form-group mb-3">
                                                         <label for="emailaddress" class="form-label">Email address</label>
-                                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                                        <input class="form-control" type="email" id="emailaddress" required="" name="email" placeholder="Enter your email">
                                                     </div>
                         
                                                     <div class="form-group mb-3">
                                                         <label for="password" class="form-label">Password</label>
-                                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                                     </div>
                         
                                                     <div class="form-group d-flex mb-3">

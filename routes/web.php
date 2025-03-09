@@ -22,7 +22,7 @@ use App\Http\Middleware\MaintenanceMiddleware;
     Route::get('/works', [WorkController::class, 'index'])->name('works');
 // });// Middleware hanya diterapkan di grup ini
 
-Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function () {
+// Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function () {
     Route::prefix('auth')->group(function () {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
         Route::post('/login-post', [LoginController::class, 'authenticate'])->name('login.authenticate');
@@ -44,7 +44,7 @@ Route::prefix('admin')->middleware(MaintenanceMiddleware::class)->group(function
         Route::put('/update/{id}', [AdminWorkController::class, 'update'])->name('admin.work.update');
         Route::delete('/delete/{id}', [AdminWorkController::class, 'destroy'])->name('admin.work.destroy');
     });
-}); // Middleware hanya diterapkan di grup ini
+// }); // Middleware hanya diterapkan di grup ini
 
 // Route maintenance juga tanpa middleware
 // Route::get('/comming-soon', function () {
