@@ -1,6 +1,22 @@
 @extends('landing-page.partials.app')
 @section('title', 'My Portfolio')
 @section('content')
+<style>
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--dark-theme-white);
+    }
+    li {
+        color: var(--dark-theme-light-white);
+    }
+    p {
+        color: var(--dark-theme-light-white);
+    }
+
+    /* bold p */
+    strong {
+        color: var(--dark-theme-white);
+    }
+</style>
 <section class="content-box-area mt-4">
     <div class="container">
         <div class="row g-4">
@@ -42,7 +58,7 @@
                                 <div class="overview">
                                     <h4 class="card-title">Overview</h4>
                                     <p>
-                                        {{ $work->overview }}
+                                        {!! $work->overview !!}
                                     </p>
                                 </div>
                             </div>
