@@ -100,10 +100,29 @@
 
                         <div class="mb-3">
                             <label for="detail_images" class="form-label">Detail Images</label>
-                            <input class="form-control @error('detail_images') is-invalid @enderror" name="detail_images[]" type="file" id="detail_images" multiple>
-                            @error('detail_images')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div id="image-container">  
+                                <div class="row mb-2 image-row">  
+                                    <div class="col-md-8">  
+                                        <input class="form-control detail-images @error('detail_images') is-invalid @enderror"   
+                                               name="detail_images[]"   
+                                               type="file"   
+                                               accept="image/*">  
+                                        @error('detail_images')  
+                                            <div class="invalid-feedback">{{ $message }}</div>  
+                                        @enderror  
+                                    </div>  
+                                    <div class="col-md-4">  
+                                        <button type="button" class="btn btn-danger remove-image" style="display:none;">  
+                                            <i class="fas fa-trash"></i> Hapus  
+                                        </button>  
+                                    </div>  
+                                </div>  
+                            </div>  
+                            <div class="mt-2">  
+                                <button type="button" id="addImageBtn" class="btn btn-primary">  
+                                    <i class="fas fa-plus"></i> Tambah Gambar  
+                                </button>  
+                            </div>   
                         </div>
                     
                         <div class="my-4">
@@ -117,4 +136,36 @@
 
     </div>
 </div>
+<script>  
+    document.addEventListener('DOMContentLoaded', function() {  
+        const imageContainer = document.getElementById('image-container');  
+        const addImageBtn = document.getElementById('addImageBtn');  
+    
+        // Fungsi untuk menambah input file baru  
+        function addNewImageInput() {  
+            // Clone baris pertama  
+            const firstRow = imageContainer.querySelector('.image-row');  
+            const newRow = firstRow.cloneNode(true);  
+    
+            // Reset input file  
+            const fileInput = newRow.querySelector('input[type="file"]');  
+            fileInput.value = ''; // Kosongkan input  
+    
+            // Tampilkan tombol hapus  
+            const removeBtn = newRow.querySelector('.remove-image');  
+            removeBtn.style.display = 'block';  
+    
+            // Tambahkan event listener untuk tombol hapus  
+            removeBtn.addEventListener('click', function() {  
+                newRow.remove();  
+            });  
+    
+            // Tambahkan baris baru ke kontainer  
+            imageContainer.appendChild(newRow);  
+        }  
+    
+        // Event listener untuk tombol "Tambah Gambar"  
+        addImageBtn.addEventListener('click', addNewImageInput);  
+    });  
+    </script>   
 @endsection
