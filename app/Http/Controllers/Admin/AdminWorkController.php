@@ -34,8 +34,8 @@ class AdminWorkController extends Controller
             'overview' => 'required|string',
             'client' => 'required|string',
             'challenge' => 'required|string',
-            'tags' => 'required|array',
-            'tags.*' => 'required|string',
+            // 'tags' => 'required|array',
+            // 'tags.*' => 'required|string',
             // 'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             // 'detail_images' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
@@ -76,12 +76,14 @@ class AdminWorkController extends Controller
         $work->gambar = $fileName;
         $work->save();
 
-        foreach ($validated['tags'] as $tag) {
-            $tag = new Tag();
-            $tag->nama = $tag;
-            $tag->slug = Str::slug($tag);
-            $tag->work_id = $work->id;
-            $tag->save();
+        if ($request->tags != null) {
+            foreach ($validated['tags'] as $tag) {
+                $tag = new Tag();
+                $tag->nama = $tag;
+                $tag->slug = Str::slug($tag);
+                $tag->work_id = $work->id;
+                $tag->save();
+            }
         }
 
         if ($request->hasFile('detail_images')) {

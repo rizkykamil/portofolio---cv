@@ -31,6 +31,17 @@
         <h4 class="fs-18 fw-semibold m-0">Add Work</h4>
     </div>
 </div>
+{{-- error --}}
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="col-12">
     <div class="card">
         <div class="card-body">
@@ -104,9 +115,9 @@
                                 <div class="row mb-2 image-row">  
                                     <div class="col-md-8">  
                                         <input class="form-control detail-images @error('detail_images') is-invalid @enderror"   
-                                               name="detail_images[]"   
-                                               type="file"   
-                                               accept="image/*">  
+                                                name="detail_images[]"   
+                                                type="file"   
+                                                accept="image/*">  
                                         @error('detail_images')  
                                             <div class="invalid-feedback">{{ $message }}</div>  
                                         @enderror  
@@ -129,7 +140,7 @@
                             <a href="{{ route('admin.work.index') }}" class="btn btn-secondary">Back</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
-                    </form>                    
+                    </form>                
                 </div>
             </div>
         </div>

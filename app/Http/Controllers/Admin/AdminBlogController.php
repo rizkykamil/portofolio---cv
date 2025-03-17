@@ -84,11 +84,13 @@ class AdminBlogController extends Controller
         }
 
         // jika ada name di table tag, maka tambahkan tag ke blog
-        foreach ($tags as $tag) {
-            $tag->nama = $tag->name;
-            $tag->slug = Str::slug($tag->name);
-            $tag->blog_id = $blog->id;
-            $tag->save();
+        if ($request->tag != null) {
+            foreach ($tags as $tag) {
+                $tag->nama = $tag->name;
+                $tag->slug = Str::slug($tag->name);
+                $tag->blog_id = $blog->id;
+                $tag->save();
+            }
         }
 
         return redirect()->route('admin.blog.index')->with('success', 'Blog successfully created!');
