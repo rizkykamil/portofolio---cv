@@ -145,11 +145,24 @@ class AdminWorkController extends Controller
     public function destroy($id)
     {
         // hapus data work berdasarkan id
-        try {
+            // hapus gambar dari folder uploads/works_images
+            $work = Work::find($id);
+            $detail_images = Work::join('work_images', 'works.id', '=', 'work_images.work_id')
+                ->select('work_images.image')
+                ->where('works.id', $work->id)
+                ->get();
+            foreach ($detail_images as $image) {
+                $imagePath = public_path('uploads/works_images/' . $image->image);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+            // hapus gambar work
+            $imagePath = public_path('uploads/works_images/' . $work->gambar);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
             Work::destroy($id);
             return redirect()->route('admin.work.index')->with('success', 'Work successfully deleted!');
-        } catch (\Exception $e) {
-            return redirect()->route('admin.work.index')->with('error', 'Work failed to delete!');
-        }
     }
 }
