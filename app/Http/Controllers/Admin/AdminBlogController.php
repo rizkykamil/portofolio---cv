@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Blog;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -12,16 +13,19 @@ class AdminBlogController extends Controller
     public function index()
     {
         $blogs = Blog::all();
-        return view('admin.blog.index', compact('blogs'));
+        $tags = Tag::all();
+        return view('admin.blog.index', compact('blogs', 'tags'));
     }
 
     public function create()
     {
-        return view('admin.blog.create');
+        $tags = Tag::all();
+        return view('admin.blog.create', compact('tags'));
     }
 
     public function store(Request $request)
     {
+        // dd($request->all());
         // Validasi input
         $validated = $request->validate([
             'judulblog' => 'required|string|max:255',
@@ -29,7 +33,7 @@ class AdminBlogController extends Controller
             'time' => 'required',
             'tanggal' => 'required|date',
             'isiblog' => 'required',
-            'gambarBlog' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
+            'gambarBlog' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
 
         // Handle file upload dan ubah ke format .webp
@@ -66,6 +70,26 @@ class AdminBlogController extends Controller
         $blog->tanggal = $validated['tanggal'];
         $blog->gambar = $fileName; // Simpan nama file .webp
         $blog->save();
+
+        // check table tags
+        $tags = Tag::all();
+
+        // jika new_tag kosong, maka tambahkan tag baru
+        if ($request->new_tag != null) {
+            $tag = new Tag();
+            $tag->nama = $request->new_tag;
+            $tag->slug = Str::slug($request->new_tag);
+            $tag->blog_id = $blog->id;
+            $tag->save();
+        }
+
+        // jika ada name di table tag, maka tambahkan tag ke blog
+        foreach ($tags as $tag) {
+            $tag->nama = $tag->name;
+            $tag->slug = Str::slug($tag->name);
+            $tag->blog_id = $blog->id;
+            $tag->save();
+        }
 
         return redirect()->route('admin.blog.index')->with('success', 'Blog successfully created!');
     }

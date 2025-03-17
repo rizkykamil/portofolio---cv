@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Tag;
 use App\Models\Work;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 
 
@@ -33,6 +34,8 @@ class AdminWorkController extends Controller
             'overview' => 'required|string',
             'client' => 'required|string',
             'challenge' => 'required|string',
+            'tags' => 'required|array',
+            'tags.*' => 'required|string',
             // 'gambarAplikasi' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
             // 'detail_images' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048'
         ]);
@@ -72,6 +75,14 @@ class AdminWorkController extends Controller
         $work->slug = Str::slug($validated['judulaplikasi']);
         $work->gambar = $fileName;
         $work->save();
+
+        foreach ($validated['tags'] as $tag) {
+            $tag = new Tag();
+            $tag->nama = $tag;
+            $tag->slug = Str::slug($tag);
+            $tag->work_id = $work->id;
+            $tag->save();
+        }
 
         if ($request->hasFile('detail_images')) {
             foreach ($request->file('detail_images') as $image) {

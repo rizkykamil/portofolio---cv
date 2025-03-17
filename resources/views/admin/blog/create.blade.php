@@ -101,6 +101,20 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+
+                        {{-- tag --}}
+                        <div class="mb-3 d-flex align-items-center">  
+                            <label for="tags" class="form-label me-2">Tags</label>  
+                            <select name="tags" class="form-select @error('tags') is-invalid @enderror" id="tags" onchange="checkTag()">  
+                                @foreach ($tags as $tag)  
+                                    <option value="{{ $tag->id }}">{{ $tag->nama }}</option>  
+                                @endforeach  
+                            </select>  
+                            <button type="button" class="btn btn-primary ms-2" onclick="addTag()">Tambah Tag Baru</button>  
+                            @error('tags')  
+                                <div class="invalid-feedback">{{ $message }}</div>  
+                            @enderror  
+                        </div>  
                     
                         <div class="my-4">
                             <a href="{{ route('admin.blog.index') }}" class="btn btn-secondary">Back</a>
@@ -113,4 +127,35 @@
         </div>
     </div>
 </div>
+
+@push('script')
+<script>  
+    function addTag() {  
+        var select = document.getElementById("tags");  
+        var input = document.createElement("input");  
+        input.type = "text";  
+        input.name = "new_tag"; // Ganti dengan nama field yang kamu inginkan  
+        input.className = "form-control @error('new_tag') is-invalid @enderror";  
+        input.placeholder = "Masukkan tag baru";  
+        
+        // Menghapus select dan menggantinya dengan input  
+        select.parentNode.replaceChild(input, select);  
+        
+        // Jika validation error, tampilkan pesan  
+        @error('new_tag')  
+            var errorDiv = document.createElement("div");  
+            errorDiv.className = "invalid-feedback";  
+            errorDiv.innerText = "{{ $message }}";  
+            input.parentNode.appendChild(errorDiv);  
+        @enderror  
+    }  
+
+    function checkTag() {  
+        var select = document.getElementById("tags");  
+        if (select.value !== "") {  
+            select.classList.remove("is-invalid");  
+        }  
+    }  
+</script>  
+@endpush
 @endsection
