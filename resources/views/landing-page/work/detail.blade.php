@@ -64,18 +64,14 @@
                             </div>
                             <div class="inner-images">
                                 <div class="row g-3">
+                                    @foreach ($detail_images as $image)
                                     <div class="col-md-6">
                                         <div class="image-item">
-                                            <img src="{{ asset('uploads/works_images/' . $work->gambar) }}" alt="project-details-2"
+                                            <img src="{{ asset('uploads/works_images/' . $image->gambar) }}" alt="project-details-2"
                                                 class="img-fluid w-100">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="image-item">
-                                            <img src="{{ asset('uploads/works_images/' . $work->gambar) }}" alt="project-details-3"
-                                                class="img-fluid w-100">
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="more-info-block">
@@ -84,10 +80,10 @@
                                     {!! $work->challenge !!}
                                 </p>
                             </div>
-                            <div class="prev-and-next-btn">
+                            {{-- <div class="prev-and-next-btn">
                                 <button class="btn btn-prev">Previous</button>
                                 <button class="btn btn-next">Next</button>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="work-together-slider">

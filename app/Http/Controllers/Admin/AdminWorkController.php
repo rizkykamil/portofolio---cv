@@ -88,11 +88,30 @@ class AdminWorkController extends Controller
 
         if ($request->hasFile('detail_images')) {
             foreach ($request->file('detail_images') as $image) {
-                $imagePath = $image->store('works/detail', 'public');
+                $imagePath = $image->getPathname();
+                $extension = $image->getClientOriginalExtension();
+                $fileName = time() . '.' . $extension;
+
+                // Pilih jenis gambar berdasarkan ekstensi file yang diunggah
+                switch ($extension) {
+                    case 'jpeg':
+                    case 'jpg':
+                        $image = imagecreatefromjpeg($imagePath);
+                        break;
+                    case 'png':
+                        $image = imagecreatefrompng($imagePath);
+                        break;
+                    default:
+                        return redirect()->back()->withErrors(['detail_images' => 'Format gambar tidak didukung.']);
+                }
+
+                // Simpan gambar dalam format .webp
+                imagewebp($image, public_path('uploads/works_images/' . $fileName), 100); // 90 adalah kualitas
                 DB::table('work_images')->insert([
                     'work_id' => $work->id,
-                    'image' => $imagePath,
+                    'image' => $fileName,
                 ]);
+                imagedestroy($image); // Hapus dari memori
             }
         }
 

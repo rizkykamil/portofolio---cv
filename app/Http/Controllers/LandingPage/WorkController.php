@@ -17,6 +17,10 @@ class WorkController extends Controller
     public function detail($slug)
     {
         $work = Work::where('slug', $slug)->first();
-        return view('landing-page.work.detail', compact('work'));
+        $detail_images = Work::join('work_images', 'works.id', '=', 'work_images.work_id')
+            ->select('work_images.image as gambar')
+            ->where('works.id', $work->id)
+            ->get();
+        return view('landing-page.work.detail', compact('work', 'detail_images'));
     }
 }
