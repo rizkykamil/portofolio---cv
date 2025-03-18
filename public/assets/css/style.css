@@ -2636,10 +2636,10 @@ p {
 	color: var(--dark-theme-white);
 }
 
-.dark-theme .article-details-text h1, h2, h3, h4, h5, h6 {
+/* .dark-theme .article-details-text h1, h2, h3, h4, h5, h6 {
 	color: var(--dark-theme-white);
 
-}
+} */
 .dark-theme .article-details-text li {
 	color: var(--dark-theme-white);
 
