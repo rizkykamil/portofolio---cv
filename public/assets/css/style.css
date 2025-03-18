@@ -2502,11 +2502,11 @@ p {
 }
 
 .dark-theme .article-details-area .article-details-text p {
-	color: var(--dark-theme-white);
+	color: var(--dark-theme-light-white);
 }
 
 .dark-theme .article-details-area .article-details-text blockquote {
-	color: var(--dark-theme-white);
+	color: var(--dark-theme-light-white);
 }
 
 .dark-theme .article-details-area .article-details-text .listed-info li {
