@@ -26,7 +26,7 @@
                                         <div class="image">
                                             <img src="{{ asset('uploads/works_images/' . $work->gambar) }}"
                                                 alt="{{ $work->judul }}" class="img-fluid w-100">
-                                            <a href="{{ $work->link }}" class="full-image-preview parent-container">
+                                            <a href="{{ route('works.detail', $work->slug) }}" class="full-image-preview parent-container">
                                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                                     fill="none" stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="1.5">
