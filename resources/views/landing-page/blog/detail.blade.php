@@ -20,7 +20,7 @@
                             <div class="article-details-text">
                                 <h3 class="main-title">{{ $blog->judul }}</h3>
                                 <div class="article-content">{!! $blog->isi !!}</div>
-                                <div class="tags-and-share">
+                                {{-- <div class="tags-and-share">
                                     <div class="tags">
                                         <h3 class="title">Tags:</h3>
                                         <ul class="list-unstyled">
@@ -39,8 +39,8 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="related-post">
+                                </div> --}}
+                                {{-- <div class="related-post">
                                     <h2 class="main-common-title">Related Post
                                     </h2>
                                     <div class="row g-4">
@@ -128,7 +128,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
