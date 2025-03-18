@@ -61,7 +61,7 @@
                                 @if ($works->count() > 0)
                                     @foreach ($works as $work)
                                     <div class="col-lg-12">
-                                        <div class="portfolio-item">
+                                        <div class="portfolio-item me-3">
                                             <div class="image">
                                                 <img src="{{ asset('uploads/works_images/' . $work->gambar) }}"
                                                     alt="{{ $work->judul }}" class="img-fluid w-100">
