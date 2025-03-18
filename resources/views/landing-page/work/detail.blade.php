@@ -6,10 +6,10 @@
         color: var(--dark-theme-white);
     }
     .portfolio-details-text .overview li {
-        color: var(--dark-theme-light-white);
+        color: var(--dark-theme-white);
     }
     .portfolio-details-text .overview p {
-        color: var(--dark-theme-light-white);
+        color: var(--dark-theme-white);
     }
 
     /* bold p */
