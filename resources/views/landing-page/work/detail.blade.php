@@ -1,22 +1,7 @@
 @extends('landing-page.partials.app')
 @section('title', 'My Portfolio')
 @section('content')
-<style>
-    .portfolio-details-text .overview h1, h2, h3, h4, h5, h6 {
-        color: var(--dark-theme-white);
-    }
-    .portfolio-details-text .overview li {
-        color: var(--dark-theme-white);
-    }
-    .portfolio-details-text .overview p {
-        color: var(--dark-theme-white);
-    }
 
-    /* bold p */
-    .portfolio-details-text .overview strong {
-        color: var(--dark-theme-white);
-    }
-</style>
 <section class="content-box-area mt-4">
     <div class="container">
         <div class="row g-4">

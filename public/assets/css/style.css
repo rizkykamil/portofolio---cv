@@ -2620,6 +2620,21 @@ p {
     color: var(--white);
 }
 
+.dark-theme .portfolio-details-text .overview h1, h2, h3, h4, h5, h6 {
+	color: var(--dark-theme-white);
+}
+.dark-theme .portfolio-details-text .overview li {
+	color: var(--dark-theme-white);
+}
+.dark-theme .portfolio-details-text .overview p {
+	color: var(--dark-theme-white);
+}
+
+/* bold p */
+.dark-theme .portfolio-details-text .overview strong {
+	color: var(--dark-theme-white);
+}
+
 
 
 
