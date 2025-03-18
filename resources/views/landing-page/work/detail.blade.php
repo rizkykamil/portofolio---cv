@@ -2,18 +2,18 @@
 @section('title', 'My Portfolio')
 @section('content')
 <style>
-    h1, h2, h3, h4, h5, h6 {
+    .portfolio-details-text .overview h1, h2, h3, h4, h5, h6 {
         color: var(--dark-theme-white);
     }
-    li {
+    .portfolio-details-text .overview li {
         color: var(--dark-theme-light-white);
     }
-    p {
+    .portfolio-details-text .overview p {
         color: var(--dark-theme-light-white);
     }
 
     /* bold p */
-    strong {
+    .portfolio-details-text .overview strong {
         color: var(--dark-theme-white);
     }
 </style>
