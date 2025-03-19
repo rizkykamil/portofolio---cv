@@ -2620,7 +2620,9 @@ p {
     color: var(--white);
 }
 
-
+.dark-theme .portfolio-details-text .overview h1, h2, h3, h4, h5, h6 {
+	color: var(--dark-theme-white);
+}
 .dark-theme .portfolio-details-text .overview li {
 	color: var(--dark-theme-white);
 }
@@ -2634,7 +2636,9 @@ p {
 	color: var(--dark-theme-white);
 }
 
-
+.dark-theme .article-details-text h1, h2, h3, h4, h5, h6 {
+	color: var(--dark);
+}
 .dark-theme .article-details-text li {
 	color: var(--dark-theme-white);
 

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Middleware\CheckCountry;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\MaintenanceMiddleware;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminWorkController;
@@ -10,9 +12,8 @@ use App\Http\Controllers\LandingPage\HomeController;
 use App\Http\Controllers\LandingPage\WorkController;
 use App\Http\Controllers\LandingPage\AboutController;
 use App\Http\Controllers\LandingPage\ContactController;
-use App\Http\Middleware\MaintenanceMiddleware;
 
-// Route::prefix('/')->middleware(MaintenanceMiddleware::class)->group(function () {
+Route::prefix('/')->middleware(CheckCountry::class)->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/about', [AboutController::class, 'index'])->name('about');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -21,13 +22,13 @@ use App\Http\Middleware\MaintenanceMiddleware;
     Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.detail');
     Route::get('/works', [WorkController::class, 'index'])->name('works');
     Route::get('/works/{slug}', [WorkController::class, 'detail'])->name('works.detail');
-// });// Middleware hanya diterapkan di grup ini
+});
 
 Route::prefix('auth')->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login-post', [LoginController::class, 'authenticate'])->name('login.authenticate');
 });
-Route::prefix('/admin')->middleware('auth')->group(function () {
+Route::prefix('/admin')->middleware(['auth', CheckCountry::class])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('blog')->group(function () {
         Route::get('/', [AdminBlogController::class, 'index'])->name('admin.blog.index');
