@@ -45,7 +45,9 @@ $(document).ready(function () {
             // Mengambil token reCAPTCHA  
             grecaptcha.execute('6LdhFPoqAAAAALSicHCjLjRiIh9xtEqCVpcT0bCf', {action: 'submit'}).then(function(token) {  
                 // Simpan token ke input tersembunyi  
-                $('#recaptcha_token').val(token);   
+                $('#recaptcha_token').val(token);
+
+                console.log('ini token = ', token);
 
                 var formData = $(form).serialize();  
 
