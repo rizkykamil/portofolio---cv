@@ -21,8 +21,6 @@ class ContactController extends Controller
 
     public function store(Request $request)  
     { 
-
-        dd($request->recaptcha_token);
         // Validasi input  
         $validator = Validator::make($request->all(), [  
             'name' => 'required',  
