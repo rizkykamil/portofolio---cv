@@ -25,8 +25,19 @@ class ContactController extends Controller
             'phone' => 'required',  
             'subject' => 'required',  
             'necessary' => 'required',  
-            'message' => 'required'  
+            'message' => 'required',
+            'g-recaptcha-response' => 'required',
         ]);  
+
+        $response_captcha = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [  
+            'secret' => config('app.captcha.recaptcha_secret_key'),  
+            'response' => $request->input('g-recaptcha-response')  
+        ]);  
+        $response_captcha_Body = json_decode($response_captcha->body());  
+
+        if (!$response_captcha_Body->success) {  
+            return back()->withErrors(['captcha' => 'Captcha salah, silakan coba lagi.']);  
+        }  
     
         // Jika validasi gagal  
         if ($validator->fails()) {  
