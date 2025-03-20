@@ -43,7 +43,7 @@ $(document).ready(function () {
 
         if (userAnswer == correctAnswer) {  
             // Mengambil token reCAPTCHA  
-            grecaptcha.execute('6LdhFPoqAAAAALSicHCjLjRiIh9xtEqCVpcT0bCf', {action: 'submit'}).then(function(token) {  
+            grecaptcha.execute(recaptchaSiteKey, { action: 'submit' }).then(function (token) {  
                 // Simpan token ke input tersembunyi  
                 $('#recaptcha_token').val(token);
                 var formData = $(form).serialize();  

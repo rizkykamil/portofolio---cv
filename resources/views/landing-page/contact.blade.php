@@ -282,51 +282,6 @@
 
 </section>
 <script>
-
-</script>  
-{{-- <script>
-    
-// Fungsi untuk mengenerate soal perkalian acak
-function generateMathQuestion() {
-    var num1 = Math.floor(Math.random() * 10) + 1;  // Angka pertama antara 1 dan 10
-    var num2 = Math.floor(Math.random() * 10) + 1;  // Angka kedua antara 1 dan 10
-    var correctAnswer = num1 * num2;
-
-    // Menampilkan soal di modal
-    document.getElementById('num1').textContent = num1;
-    document.getElementById('num2').textContent = num2;
-    document.getElementById('correct-answer').value = correctAnswer;
-}
-
-// Menangani tombol kirim pada form
-document.querySelector('.submit-btn').addEventListener('click', function(event) {
-    // Mencegah form untuk langsung dikirim
-    event.preventDefault();
-    
-    // Menampilkan modal verifikasi
-    $('#verificationModal').modal('show');
-    
-    // Mengenerate soal perkalian setiap kali modal muncul
-    generateMathQuestion();
-});
-
-// Menangani klik tombol kirim jawaban di modal
-document.getElementById('verifyAnswerBtn').addEventListener('click', function() {
-    var userAnswer = document.getElementById('answer').value.trim();
-    var correctAnswer = document.getElementById('correct-answer').value;
-
-    // Verifikasi jawaban
-    if (userAnswer == correctAnswer) {
-        // Jika jawabannya benar, kirim form
-        document.getElementById('contact-form').submit();
-        $('#verificationModal').modal('hide');  // Menutup modal
-    } else {
-        // Jika jawabannya salah, tampilkan pesan error
-        document.getElementById('error-message').style.display = 'block';
-    }
-});
-
-
-</script> --}}
-
+const recaptchaSiteKey = "{{ config('app.captcha.recaptcha_site_key') }}";
+</script>
 @endsection
