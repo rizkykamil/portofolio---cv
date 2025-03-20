@@ -22,6 +22,7 @@
                                 <div class="comments-box">
                                     <form id="contact-form" action="{{route("contact.store")}}" method="POST">
                                         @csrf
+                                        <input type="hidden" name="recaptcha_token" id="recaptcha_token">  
                                         <div class="row gx-3">
                                             <div class="col-md-6">
                                                 <div class="mb-4">
@@ -71,8 +72,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="form-label">Captcha</label>
-                                                <div class="g-recaptcha" data-sitekey="{{ config('app.captcha.recaptcha_site_key') }}"></div>
+                                                <button class="g-recaptcha"
+                                                    data-sitekey="{{ config('app.captcha.recaptcha_site_key') }}"
+                                                    data-callback='onSubmit'
+                                                    data-action='submit'>
                                             </div>
                                             <div class="col-md-12">
                                                 <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal">
@@ -278,7 +281,9 @@
 
 
 </section>
+<script>
 
+</script>  
 {{-- <script>
     
 // Fungsi untuk mengenerate soal perkalian acak

@@ -16,8 +16,13 @@ class ContactController extends Controller
         return view(view: 'landing-page.contact');
     }
 
+
+
+
     public function store(Request $request)  
-    {  
+    { 
+
+        // dd($request->recaptcha_token);
         // Validasi input  
         $validator = Validator::make($request->all(), [  
             'name' => 'required',  
@@ -26,24 +31,29 @@ class ContactController extends Controller
             'subject' => 'required',  
             'necessary' => 'required',  
             'message' => 'required',
-            'g-recaptcha-response' => 'required',
+            'recaptcha_token' => 'required',
         ]);  
 
-        $response_captcha = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [  
-            'secret' => config('app.captcha.recaptcha_secret_key'),  
-            'response' => $request->input('g-recaptcha-response')  
-        ]);  
-        $response_captcha_Body = json_decode($response_captcha->body());  
-
-        if (!$response_captcha_Body->success) {  
-            return back()->withErrors(['captcha' => 'Captcha salah, silakan coba lagi.']);  
-        }  
+       
     
         // Jika validasi gagal  
         if ($validator->fails()) {  
             return response()->json([  
                 'status' => 'error',  
                 'message' => $validator->errors()->first()  
+            ], 400);  
+        } 
+        
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [  
+            'secret' => config('app.captcha.recaptcha_secret_key'),  
+            'response' => $request->recaptcha_token,  
+        ]);
+        $responseBody = json_decode($response->body());  
+
+        if (!$responseBody->success || $responseBody->score < 0.5) {  
+            return response()->json([  
+                'status' => 'error',  
+                'message' => 'reCAPTCHA verification failed.'  
             ], 400);  
         }  
     
