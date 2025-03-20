@@ -22,7 +22,7 @@ class ContactController extends Controller
     public function store(Request $request)  
     { 
 
-        // dd($request->recaptcha_token);
+        dd($request->recaptcha_token);
         // Validasi input  
         $validator = Validator::make($request->all(), [  
             'name' => 'required',  
@@ -33,8 +33,6 @@ class ContactController extends Controller
             'message' => 'required',
             'recaptcha_token' => 'required',
         ]);  
-
-       
     
         // Jika validasi gagal  
         if ($validator->fails()) {  
