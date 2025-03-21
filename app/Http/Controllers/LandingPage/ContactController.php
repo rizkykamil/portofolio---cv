@@ -46,10 +46,10 @@ class ContactController extends Controller
         ]);
         $responseBody = json_decode($response->body());  
 
-        if (!$responseBody->success || $responseBody->score < 0.7) {  
+        if (!$responseBody->success || $responseBody->score < 1) {  
             return response()->json([  
                 'status' => 'error',  
-                'message' => 'reCAPTCHA verification failed.'  
+                'message' => 'reCAPTCHA verification failed. Hasil reCAPTCHA : ' . $responseBody->score  . ', minimal 1'
             ], 400);  
         }  
     
@@ -108,7 +108,7 @@ class ContactController extends Controller
 
                 return response()->json([  
                     'status' => 'success',  
-                    'message' => 'Pesan berhasil dikirim, indeksi anda robot : ' . $responseBody->score 
+                    'message' => 'Pesan berhasil dikirim, hasil reCAPTCHA : ' . $responseBody->score 
                 ]);  
             } else {  
                 $errorMessage = $response->json()['message'] ?? 'Gagal mengirim pesan';   
