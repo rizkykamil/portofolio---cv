@@ -60,7 +60,6 @@ $(document).ready(function () {
                         $(formMessages).removeClass('error');  
                         $(formMessages).addClass('success');  
                         $(formMessages).text(response.message);
-                        console.log(response.message);
 
                         $('#contact-form input, #contact-form textarea').val('');  
                         $('#contact-form select[name="budget"]').prop('selectedIndex', 0);  
