@@ -108,7 +108,7 @@ class ContactController extends Controller
 
                 return response()->json([  
                     'status' => 'success',  
-                    'message' => 'Pesan berhasil dikirim'  
+                    'message' => 'Pesan berhasil dikirim, indeksi anda robot : ' . $responseBody->score 
                 ]);  
             } else {  
                 $errorMessage = $response->json()['message'] ?? 'Gagal mengirim pesan';   
