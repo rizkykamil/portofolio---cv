@@ -46,10 +46,10 @@ class ContactController extends Controller
         ]);
         $responseBody = json_decode($response->body());  
 
-        if (!$responseBody->success || $responseBody->score < 1) {  
+        if (!$responseBody->success || $responseBody->score < 0.7) {  
             return response()->json([  
                 'status' => 'error',  
-                'message' => 'reCAPTCHA verification failed. Hasil reCAPTCHA : ' . $responseBody->score  . ', minimal 1'
+                'message' => 'reCAPTCHA verification failed. Hasil reCAPTCHA : ' . $responseBody->score  . ', minimal 0.7'
             ], 400);  
         }  
     
