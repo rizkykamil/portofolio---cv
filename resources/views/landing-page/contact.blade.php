@@ -27,35 +27,35 @@
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Name</label>
-                                                    <input name="name" required type="text"
+                                                    <input name="name" required type="text" id="name"
                                                         class="form-control shadow-none" placeholder="Enter your name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Email</label>
-                                                    <input name="email" required type="email"
+                                                    <input name="email" required type="email" id="email"
                                                         class="form-control shadow-none" placeholder="Enter your email">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Subject</label>
-                                                    <input name="subject" required type="text"
+                                                    <input name="subject" required type="text" id="subject"
                                                         class="form-control shadow-none" placeholder="Subject">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Phone</label>
-                                                    <input name="phone" required type="text"
+                                                    <input name="phone" required type="text" id="phone"
                                                         class="form-control shadow-none" placeholder="Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="mb-4">
                                                     <label class="form-label">necessary</label>
-                                                    <select name="necessary" class="form-select shadow-none">
+                                                    <select name="necessary" class="form-select shadow-none" id="necessary">
                                                         <option value="">Select</option>
                                                         <option value="Recruitment Office">Recruitment Office</option>
                                                         <option value="Freelance">Freelance</option>
@@ -67,7 +67,7 @@
                                             <div class="col-md-12">
                                                 <div class="mb-4">
                                                     <label class="form-label">Comment</label>
-                                                    <textarea name="message" class="form-control shadow-none" rows="4"
+                                                    <textarea name="message" class="form-control shadow-none" rows="4" id="message"
                                                         placeholder="Type details about your inquiry"></textarea>
                                                 </div>
                                             </div>
