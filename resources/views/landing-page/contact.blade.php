@@ -78,7 +78,7 @@
                                                     data-action='submit'>
                                             </div>
                                             <div class="col-md-12">
-                                                <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal">
+                                                <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal" id="submit-btn">
                                                     Send Message
                                                     <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.5 11.6665V6.6665H12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
