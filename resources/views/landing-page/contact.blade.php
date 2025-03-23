@@ -285,7 +285,7 @@
 
 </section>
 
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+{{-- <script src="https://js.hcaptcha.com/1/api.js" async defer></script> --}}
 
 <script>
 const recaptchaSiteKey = "{{ config('app.captcha.recaptcha_site_key') }}";
