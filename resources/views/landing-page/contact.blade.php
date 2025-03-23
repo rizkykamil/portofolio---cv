@@ -77,9 +77,9 @@
                                                     data-callback='onSubmit'
                                                     data-action='submit'>
                                             </div>
-                                            <div class="col-md-12">
+                                            {{-- <div class="col-md-12">
                                                 <div class="h-captcha" data-sitekey="363c1ab4-85a6-4d38-9500-5e92fb20d354"></div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-12">
                                                 <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal" id="submit-btn">
                                                     Send Message
