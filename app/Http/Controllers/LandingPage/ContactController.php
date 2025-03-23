@@ -16,9 +16,6 @@ class ContactController extends Controller
         return view(view: 'landing-page.contact');
     }
 
-
-
-
     public function store(Request $request)  
     { 
         // Validasi input  
@@ -30,7 +27,25 @@ class ContactController extends Controller
             'necessary' => 'required',  
             'message' => 'required',
             'recaptcha_token' => 'required',
+            'hcaptcha_token' => 'required',
         ]);  
+            
+
+        $hcaptchaResponse = $request->hcaptcha_token;  // Ambil token hCaptcha dari request  
+        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [  
+            'secret' => config('app.captcha.hcaptcha_secret_key'),  
+            'response' => $hcaptchaResponse,  
+        ]);  
+        
+        $responseBody = json_decode($response->body());  
+    
+        // Cek hasil verifikasi  
+        if (!$responseBody->success) {  
+            return response()->json([  
+                'status' => 'error',  
+                'message' => 'hCaptcha verification failed.'  
+            ], 400);  
+        }  
     
         // Jika validasi gagal  
         if ($validator->fails()) {  
