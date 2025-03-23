@@ -78,6 +78,9 @@
                                                     data-action='submit'>
                                             </div>
                                             <div class="col-md-12">
+                                                <div class="h-captcha" data-sitekey="363c1ab4-85a6-4d38-9500-5e92fb20d354"></div>
+                                            </div>
+                                            <div class="col-md-12">
                                                 <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal" id="submit-btn">
                                                     Send Message
                                                     <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -282,6 +285,8 @@
 
 </section>
 <script>
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 const recaptchaSiteKey = "{{ config('app.captcha.recaptcha_site_key') }}";
 </script>
 @endsection
