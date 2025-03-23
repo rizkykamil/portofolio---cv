@@ -27,25 +27,25 @@ class ContactController extends Controller
             'necessary' => 'required',  
             'message' => 'required',
             'recaptcha_token' => 'required',
-            'hcaptcha_token' => 'required',
+            // 'hcaptcha_token' => 'required',
         ]);  
             
 
-        $hcaptchaResponse = $request->hcaptcha_token;  // Ambil token hCaptcha dari request  
-        $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [  
-            'secret' => config('app.captcha.hcaptcha_secret_key'),  
-            'response' => $hcaptchaResponse,  
-        ]);  
+        // $hcaptchaResponse = $request->hcaptcha_token;  // Ambil token hCaptcha dari request  
+        // $response = Http::asForm()->post('https://hcaptcha.com/siteverify', [  
+        //     'secret' => '363c1ab4-85a6-4d38-9500-5e92fb20d354',
+        //     'response' => $hcaptchaResponse,  
+        // ]);  
         
-        $responseBody = json_decode($response->body());  
+        // $responseBody = json_decode($response->body());  
     
         // Cek hasil verifikasi  
-        if (!$responseBody->success) {  
-            return response()->json([  
-                'status' => 'error',  
-                'message' => 'hCaptcha verification failed.'  
-            ], 400);  
-        }  
+        // if (!$responseBody->success) {  
+        //     return response()->json([  
+        //         'status' => 'error',  
+        //         'message' => 'hCaptcha verification failed.'  
+        //     ], 400);  
+        // }  
     
         // Jika validasi gagal  
         if ($validator->fails()) {  
