@@ -12,6 +12,8 @@
     <link rel="icon" href="{{asset("assets/img/favicon.svg")}}" type="image/png">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset("assets/img/favicon.svg")}}">
     <script src="https://www.google.com/recaptcha/api.js?render=6LdhFPoqAAAAALSicHCjLjRiIh9xtEqCVpcT0bCf"></script>
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
 
     @include('landing-page.partials.head-css')
 </head>
