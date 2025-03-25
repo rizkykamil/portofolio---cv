@@ -6,7 +6,6 @@
 <script src="{{asset("assets/js/clipboard.min.js")}}"></script>
 <script src="{{asset("assets/js/slick.min.js")}}"></script>
 <script src="{{asset("assets/js/script.js")}}"></script>
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
 
 @stack('script')
