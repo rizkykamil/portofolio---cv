@@ -28,28 +28,28 @@
                                                 <div class="mb-4">
                                                     <label class="form-label">Name</label>
                                                     <input name="name" required type="text" id="name"
-                                                        class="form-control shadow-none" placeholder="Enter your name">
+                                                        class="form-control shadow-none" placeholder="John Doe">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Email</label>
                                                     <input name="email" required type="email" id="email"
-                                                        class="form-control shadow-none" placeholder="Enter your email">
+                                                        class="form-control shadow-none" placeholder="test@gmail.com">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Subject</label>
                                                     <input name="subject" required type="text" id="subject"
-                                                        class="form-control shadow-none" placeholder="Subject">
+                                                        class="form-control shadow-none" placeholder="Inquiry about Product">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="mb-4">
                                                     <label class="form-label">Phone</label>
                                                     <input name="phone" required type="text" id="phone"
-                                                        class="form-control shadow-none" placeholder="Phone">
+                                                        class="form-control shadow-none" placeholder="+62 812 3456 7890">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -68,7 +68,7 @@
                                                 <div class="mb-4">
                                                     <label class="form-label">Comment</label>
                                                     <textarea name="message" class="form-control shadow-none" rows="4" id="message"
-                                                        placeholder="Type details about your inquiry"></textarea>
+                                                        placeholder="Please describe your inquiry"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
