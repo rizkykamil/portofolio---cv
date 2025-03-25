@@ -77,9 +77,6 @@
                                                     data-callback='onSubmit'
                                                     data-action='submit'>
                                             </div>
-                                            {{-- <div class="col-md-12">
-                                                <div class="h-captcha" data-sitekey="363c1ab4-85a6-4d38-9500-5e92fb20d354"></div>
-                                            </div> --}}
                                             <div class="col-md-12">
                                                 <button type="button" class="submit-btn" data-bs-toggle="modal" data-bs-target="#verificationModal" id="submit-btn">
                                                     Send Message
@@ -285,7 +282,6 @@
 
 </section>
 
-{{-- <script src="https://js.hcaptcha.com/1/api.js" async defer></script> --}}
 
 <script>
 const recaptchaSiteKey = "{{ config('app.captcha.recaptcha_site_key') }}";
