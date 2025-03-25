@@ -24,7 +24,7 @@ class ContactController extends Controller
             'email' => 'required|email',  
             'phone' => 'required',  
             'subject' => 'required',  
-            'necessary' => 'required',  
+            'InquiryType' => 'required',  
             'message' => 'required',
             'recaptcha_token' => 'required',
         ]);  
@@ -55,7 +55,7 @@ class ContactController extends Controller
             'email' => $request->email,  
             'phone' => $request->phone,  
             'subject' => $request->subject,  
-            'necessary' => $request->necessary,  
+            'InquiryType' => $request->InquiryType,  
             'message' => $request->message,  
         ];  
     
@@ -74,7 +74,7 @@ class ContactController extends Controller
                                 "\nEmail: " . $data['email'] .   
                                 "\nPhone: " . $data['phone'] .   
                                 "\nSubject: " . $data['subject'] .   
-                                "\nNecessary: " . $data['necessary'] .   
+                                "\nInquiryType: " . $data['InquiryType'] .   
                                 "\nMessage: " . $data['message']  
             ]);
 

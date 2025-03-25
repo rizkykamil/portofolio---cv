@@ -54,8 +54,8 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="mb-4">
-                                                    <label class="form-label">necessary</label>
-                                                    <select name="necessary" class="form-select shadow-none" id="necessary">
+                                                    <label class="form-label">Inquiry Type</label>
+                                                    <select name="InquiryType" class="form-select shadow-none" id="InquiryType">
                                                         <option value="">Select</option>
                                                         <option value="Recruitment Office">Recruitment Office</option>
                                                         <option value="Freelance">Freelance</option>

@@ -62,7 +62,7 @@ $(document).ready(function () {
                         $(formMessages).text(response.message);
 
                         $('#contact-form input, #contact-form textarea').val('');  
-                        $('#contact-form select[name="budget"]').prop('selectedIndex', 0);  
+                        $('#contact-form select[name="InquiryType"]').prop('selectedIndex', 0);  
 
                         setTimeout(function () {  
                             $(formMessages).empty().removeClass('success');  
